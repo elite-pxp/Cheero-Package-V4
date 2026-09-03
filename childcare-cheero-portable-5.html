@@ -1211,34 +1211,66 @@
       .wood-nav a { flex: 1 1 0; font-size: clamp(.66rem, 2.2vw, .84rem); text-align: center; white-space: nowrap; }
     }
     @media (prefers-reduced-motion: reduce) { .hero-button, .copy-cta, .shop-button, .shop-heading, .custom-callout { animation: none; } }
-    .shop-modal[hidden] { display: none; }
-    .shop-modal { position: fixed; inset: 0; z-index: 30; display: grid; place-items: center; padding: 18px; background: rgba(20, 37, 45, .66); }
-    .shop-modal-panel { position: relative; width: min(900px, 100%); max-height: min(760px, calc(100vh - 36px)); overflow: auto; padding: clamp(20px, 4vw, 38px); border: 3px solid #4b2713; border-radius: 24px; background: linear-gradient(rgba(255,250,235,.94), rgba(255,250,235,.94)), url("https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a98422acf28d633650537cb.png") center/cover; box-shadow: 0 18px 55px rgba(0,0,0,.35); }
-    .shop-modal-close { position: absolute; top: 12px; right: 12px; width: 38px; height: 38px; border: 2px solid #4b2713; border-radius: 50%; background: #fff9df; color: #4b2713; font: 800 1.3rem/1 Arial, sans-serif; cursor: pointer; }
-    .shop-modal-cover { min-height: 115px; display: grid; place-items: center; margin-bottom: 16px; padding: 18px; border: 3px solid #4b2713; border-radius: 16px; background: repeating-linear-gradient(171deg, transparent 0 9px, rgba(59,28,10,.23) 10px 11px, transparent 12px 18px), linear-gradient(180deg, #ad703a, #663315); color: #fff9df; font: 400 clamp(1.6rem, 4vw, 3rem)/1 "Fredoka One", "Baloo 2", sans-serif; text-align: center; text-shadow: 0 2px #42200e; }
-    .shop-modal-product { margin-bottom: 18px; }
-    .shop-modal-cover-image, .shop-modal-item-image { display: grid; place-items: center; border: 2px dashed #c89540; border-radius: 12px; background: linear-gradient(145deg, #fff5d6, #ecdfb7); color: #76512e; font: 800 .68rem/1.2 "Baloo 2", Arial, sans-serif; text-align: center; text-transform: uppercase; }
-    .shop-modal-cover-image { min-height: 130px; }
-    .shop-modal-copy { max-width: 690px; margin: 0 auto 20px; color: #263128; font: 600 1rem/1.55 "Trebuchet MS", Arial, sans-serif; text-align: center; }
-    .shop-modal-items { display: flex; gap: 14px; overflow-x: auto; padding: 2px 2px 14px; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: thin; }
-    .shop-modal-selected { display: grid; grid-template-columns: 190px 1fr; gap: 22px; align-items: center; margin-bottom: 20px; padding: 16px; border-top: 2px solid #e1bc76; border-bottom: 2px solid #e1bc76; }
-    .shop-modal-selected-image { display: grid; min-height: 220px; place-items: center; border: 2px dashed #c89540; border-radius: 12px; background: linear-gradient(145deg, #fff5d6, #ecdfb7); color: #76512e; font: 800 .75rem/1.3 "Baloo 2", Arial, sans-serif; text-align: center; text-transform: uppercase; }
-    .shop-modal-selected h3 { margin: 0; color: #192f70; font: 400 clamp(1.4rem, 3vw, 2rem)/1 "Fredoka One", "Baloo 2", sans-serif; }
-    .shop-modal-age { display: block; margin: 8px 0 0; color: #2c6430; font: 800 .92rem/1.25 "Baloo 2", Arial, sans-serif; }
-    .shop-modal-selected p { margin: 12px 0 18px; color: #38413b; font: 600 1rem/1.5 "Trebuchet MS", Arial, sans-serif; }
-    .shop-modal-price { display: block; margin: 0 0 16px; color: #a7193f; font: 400 1.5rem/1 "Fredoka One", "Baloo 2", sans-serif; }
-    .shop-modal-checkout { display: inline-grid; place-items: center; min-height: 46px; padding: 10px 22px; border: 2px solid #4b2713; border-radius: 10px; background: linear-gradient(180deg,#f3c76c,#d99d3e); box-shadow: 0 4px #5a2d12; color: #4b2713; font: 800 .9rem/1 "Baloo 2", Arial, sans-serif; text-decoration: none; }
-    .shop-modal-item { display: flex; flex: 0 0 min(270px, 78vw); flex-direction: column; min-height: 315px; padding: 12px; border: 2px solid #dfb968; border-radius: 14px; background: #fffdf5; scroll-snap-align: start; text-align: center; }
-    .shop-modal-item-image { aspect-ratio: 1 / 1; min-height: 0; margin-bottom: 10px; font-size: .57rem; }
-    .shop-modal-item-image.has-image, .shop-modal-selected-image.has-image { position: relative; padding: 0; border-style: solid; overflow: hidden; background: none; }
-    .shop-modal-item-image.has-image img, .shop-modal-selected-image.has-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .shop-modal-item strong { color: #192f70; font: 400 1.1rem/1.1 "Fredoka One", "Baloo 2", sans-serif; }
+    /* Inline product listings shown when a shop category is clicked
+       (replaces the old pop-up window behavior). */
+    .products-inline {
+      margin-top: clamp(26px, 4vw, 48px);
+      padding: clamp(18px, 3vw, 30px);
+      border: 3px solid #4b2713;
+      border-radius: 20px;
+      background: linear-gradient(rgba(255, 250, 235, .96), rgba(255, 250, 235, .96)), url("https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a98422acf28d633650537cb.png") center/cover;
+      box-shadow: 0 8px 24px rgba(58, 28, 11, .18);
+    }
+    .products-inline[hidden] { display: none; }
+    .products-inline-heading {
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 auto clamp(16px, 3vw, 26px);
+      padding: 8px clamp(18px, 4vw, 42px);
+      border: 3px solid #4b2713;
+      border-radius: 10px;
+      background:
+        repeating-linear-gradient(171deg, transparent 0 9px, rgba(59,28,10,.23) 10px 11px, transparent 12px 18px),
+        linear-gradient(180deg, #ad703a 0%, #7b401e 52%, #663315 100%);
+      box-shadow: inset 0 2px rgba(255,215,159,.65), inset 0 -3px rgba(68,30,10,.65), 0 4px rgba(58,28,11,.5);
+      color: #fff9df;
+      font: 800 clamp(1.1rem, 2.2vw, 1.7rem)/1 "Baloo 2", Arial, sans-serif;
+      letter-spacing: -.02em;
+      text-align: center;
+      text-shadow: 0 2px #42200e;
+      text-transform: uppercase;
+    }
+    .products-inline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: clamp(14px, 2vw, 24px);
+      align-items: start;
+    }
+    .products-inline-item {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: 12px;
+      border: 2px solid #dfb968;
+      border-radius: 14px;
+      background: #fffdf5;
+      text-align: center;
+    }
+    .products-inline-cover {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border: 2px dashed #c89540;
+      border-radius: 10px;
+      background: linear-gradient(145deg, #fff5d6, #ecdfb7);
+    }
+    .products-inline-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .products-inline-item h3 { margin: 12px 0 2px; color: #192f70; font: 400 1.05rem/1.15 "Fredoka One", "Baloo 2", sans-serif; }
+    .products-inline-item .products-inline-age { display: block; margin: 0 0 8px; color: #3a4039; font: 400 .82rem/1.3 "Trebuchet MS", Arial, sans-serif; }
+    .products-inline-item p { margin: 0; color: #342f29; font: 600 .88rem/1.45 "Trebuchet MS", Arial, sans-serif; }
     .scroll-reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
     .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
     .footer-value-icon { border-style: solid !important; border-color: #e5b759 !important; background: #fff7d7 !important; color: #6a431d !important; font-size: clamp(1.45rem, 2.6vw, 2.1rem) !important; text-transform: none !important; }
-    .shop-modal-item span { margin: 8px 0 14px; color: #3a4039; font: 600 .85rem/1.35 "Trebuchet MS", Arial, sans-serif; }
-    .shop-modal-buy { margin-top: auto; padding: 10px 7px; border: 2px solid #142555; border-radius: 9px; background: #192f70; box-shadow: 0 3px #112352; color: #fff9df; font: 800 .8rem/1 "Baloo 2", Arial, sans-serif; cursor: pointer; }
-    @media (max-width: 560px) { .shop-modal-product, .shop-modal-selected { grid-template-columns: 1fr; } .shop-modal-items { gap: 10px; } .shop-modal-selected-image { min-height: 130px; } .shop-modal-cover-image { min-height: 110px; } .shop-modal-item { flex-basis: min(245px, 78vw); min-height: 0; padding: 7px; border-radius: 10px; } .shop-modal-item-image { margin-bottom: 6px; font-size: .42rem; } .shop-modal-item strong { font-size: .7rem; } .shop-modal-item span { margin: 5px 0 8px; font-size: .56rem; line-height: 1.2; } .shop-modal-buy { padding: 8px 2px; font-size: .58rem; } }
     @media (max-width: 760px) {
       .footer-value { font-size: .88rem !important; line-height: 1.2 !important; }
       .footer-value-icon { width: auto !important; height: auto !important; min-height: 0 !important; margin: 0 0 6px !important; border: 0 !important; background: transparent !important; box-shadow: none !important; font-size: 1.25rem !important; }
@@ -1391,6 +1423,10 @@
             <span class="product-spec">Create at 1000 × 1250 px · 4:5</span>
           </article>
         </div>
+        <div class="products-inline" id="products-inline" hidden aria-live="polite">
+          <h3 class="products-inline-heading" id="products-inline-heading"></h3>
+          <div class="products-inline-grid" id="products-inline-grid"></div>
+        </div>
         <div class="shop-details">
           <article class="detail-panel" aria-labelledby="perfect-for-heading">
             <h3 id="perfect-for-heading" class="detail-heading">Perfect For</h3>
@@ -1470,38 +1506,18 @@
       </footer>
     </section>
   </main>
-  <div class="shop-modal" id="shop-modal" hidden role="dialog" aria-modal="true" aria-labelledby="shop-modal-title">
-    <div class="shop-modal-panel">
-      <button class="shop-modal-close" type="button" aria-label="Close shop">×</button>
-      <div class="shop-modal-cover" id="shop-modal-title"></div>
-      <div class="shop-modal-product"><p class="shop-modal-copy" id="shop-modal-copy"></p></div>
-      <div class="shop-modal-items" id="shop-modal-items"></div>
-    </div>
-  </div>
-  <div class="shop-modal" id="product-detail-modal" hidden role="dialog" aria-modal="true" aria-labelledby="shop-modal-selected-title">
-    <div class="shop-modal-panel">
-      <button class="shop-modal-close" type="button" aria-label="Close product details">×</button>
-      <div class="shop-modal-selected"><div class="shop-modal-selected-image" id="shop-modal-selected-image">Select a Product</div><div><h3 id="shop-modal-selected-title">Choose a Product</h3><p id="shop-modal-selected-copy">Select an item below to view its cover and description.</p><strong class="shop-modal-price" id="shop-modal-price">$29.99</strong><a class="shop-modal-checkout" id="shop-modal-checkout" href="#">Checkout</a></div></div>
-    </div>
-  </div>
   <script>
     document.getElementById('purpose-section').after(document.getElementById('section-3'));
-    const shopModal = document.getElementById('shop-modal');
-    const modalTitle = document.getElementById('shop-modal-title');
-    const modalCopy = document.getElementById('shop-modal-copy');
-    const modalItems = document.getElementById('shop-modal-items');
-    const detailModal = document.getElementById('product-detail-modal');
+    const inlineProducts = document.getElementById('products-inline');
+    const inlineHeading = document.getElementById('products-inline-heading');
+    const inlineGrid = document.getElementById('products-inline-grid');
     document.getElementById('shop-products').addEventListener('click', (event) => {
       const button = event.target.closest('.product-card .shop-button');
       if (!button) return;
-      {
-        event.preventDefault();
-        const card = button.closest('.product-card');
-        const title = card.querySelector('h3').innerText.replace(/\n/g, ' ');
-        const titleUp = title.toUpperCase();
-        const description = card.querySelector('p').innerText;
-        modalTitle.textContent = title;
-        modalCopy.textContent = description;
+      event.preventDefault();
+      const card = button.closest('.product-card');
+      const title = card.querySelector('h3').innerText.replace(/\n/g, ' ');
+      const titleUp = title.toUpperCase();
         const homework = [
           ['Starter Homework Booklet', 'The Starter Homework Booklet is created for infants ages 6 weeks to 11 months. It gives families simple, age-appropriate activities that connect learning at home with the Childcare Cheero Christian Curriculum. Each activity supports early development while introducing faith, family connection, and meaningful learning experiences designed for our youngest learners.', 'Infants — Ages 6 Weeks to 11 Months', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4f1d9a153ac43f93d57.png'],
           ['Freshman Homework Booklet', 'The Freshman Homework Booklet is designed for Toddler 1’s, ages 12 to 23 months. It includes simple activities families can complete at home to reinforce skills and concepts introduced during the school day. Activities are appropriate for this stage of development and support early learning, growing independence, and faith-based connections.', 'Toddler 1’s — Ages 12 to 23 Months', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4f0a612b72e8fa132b9.png'],
@@ -1510,26 +1526,19 @@
           ['Senior Homework Booklet', 'The Senior Homework Booklet is designed for Pre-K 4’s, age 4. It provides purposeful at-home activities that reinforce classroom concepts and help children continue building the skills they need as they prepare for kindergarten. Activities support early academics, communication, problem-solving, independence, and Christian learning while giving families an easy way to participate in their child’s education.', 'Pre-K 4’s — Age 4', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4edfac7854efe535293.png']
         ];
         const lessons = [
-          ['Starter Teacher Lesson Plan Booklet — Infants, Ages 6 Weeks to 11 Months', 'Lesson plans and guidance for teachers working with infants, including developmentally appropriate experiences, weekly instruction, and faith-based learning.', null, 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4edf8c3a55cc272f7aa.png'],
-          ['Freshman Teacher Lesson Plan Booklet — Toddler 1’s, Ages 12 to 23 Months', 'Organized lesson plans for age-appropriate learning experiences, classroom activities, and Christian curriculum connections.', null, 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4eda1f3f48f4bc369ad.png'],
-          ['Sophomore Teacher Lesson Plan Booklet — Toddler 2’s, Ages 24 to 35 Months', 'Structured lesson plans and activities for learning concepts, hands-on experiences, and faith-based lessons for this important stage.', null, 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4eda1f3f48f4bc369b6.png'],
-          ['Junior Teacher Lesson Plan Booklet — Preschool 3’s, Age 3', 'Organized lesson plans supporting early academics, language, creativity, social development, classroom exploration, and Christian learning.', null, 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4edf20cf78ef1192685.png'],
-          ['Senior Teacher Lesson Plan Booklet — Pre-K 4’s, Age 4', 'Organized lesson plans and classroom activities supporting kindergarten readiness, early academics, independence, communication, character, and faith.', null, 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4ed7e31763f5dd9d39d.png']
+          ['Starter Teacher Lesson Plan Booklet', 'Lesson plans and guidance for teachers working with infants, including developmentally appropriate experiences, weekly instruction, and faith-based learning.', 'Infants — Ages 6 Weeks to 11 Months', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4edf8c3a55cc272f7aa.png'],
+          ['Freshman Teacher Lesson Plan Booklet', 'Organized lesson plans for age-appropriate learning experiences, classroom activities, and Christian curriculum connections.', 'Toddler 1’s — Ages 12 to 23 Months', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4eda1f3f48f4bc369ad.png'],
+          ['Sophomore Teacher Lesson Plan Booklet', 'Structured lesson plans and activities for learning concepts, hands-on experiences, and faith-based lessons for this important stage.', 'Toddler 2’s — Ages 24 to 35 Months', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4eda1f3f48f4bc369b6.png'],
+          ['Junior Teacher Lesson Plan Booklet', 'Organized lesson plans supporting early academics, language, creativity, social development, classroom exploration, and Christian learning.', 'Preschool 3’s — Age 3', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4edf20cf78ef1192685.png'],
+          ['Senior Teacher Lesson Plan Booklet', 'Organized lesson plans and classroom activities supporting kindergarten readiness, early academics, independence, communication, character, and faith.', 'Pre-K 4’s — Age 4', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4ed7e31763f5dd9d39d.png']
         ];
-        const products = titleUp.includes('HOMEWORK') ? homework : titleUp.includes('TEACHER') ? lessons : ['Starter', 'Freshman', 'Sophomore', 'Junior', 'Senior'].map((level) => [`${level} ${title}`, description]);
-        if (titleUp.includes('HOMEWORK') || titleUp.includes('TEACHER')) modalCopy.textContent = products[0][1];
-        const selectedImage = document.getElementById('shop-modal-selected-image');
-        const selectedTitle = document.getElementById('shop-modal-selected-title');
-        const selectedCopy = document.getElementById('shop-modal-selected-copy');
-        const selectProduct = (index) => { const item = products[index]; selectedImage.innerHTML = item[3] ? `<img src="${item[3]}" alt="${item[0]} cover">` : `${item[0]}<br>Cover Image`; selectedImage.classList.toggle('has-image', !!item[3]); selectedTitle.textContent = item[0]; selectedCopy.textContent = item[1]; document.getElementById('shop-modal-price').textContent = '$29.99'; detailModal.hidden = false; };
-        modalItems.innerHTML = products.map((item, index) => `<article class="shop-modal-item"><div class="shop-modal-item-image${item[3] ? ' has-image' : ''}">${item[3] ? `<img src="${item[3]}" alt="${item[0]} cover">` : `${item[0]}<br>Product Image`}</div><strong>${item[0]}</strong>${item[2] ? `<span>${item[2]}</span>` : ''}<button class="shop-modal-buy" type="button" data-index="${index}">View Product</button></article>`).join('');
-        modalItems.querySelectorAll('.shop-modal-buy').forEach((itemButton) => itemButton.addEventListener('click', () => selectProduct(Number(itemButton.dataset.index))));
-        shopModal.hidden = false;
-      }
+        const products = titleUp.includes('HOMEWORK') ? homework : titleUp.includes('TEACHER') ? lessons : null;
+        if (!products) return;
+        inlineHeading.textContent = title.replace(/\s+/g, ' ').trim();
+        inlineGrid.innerHTML = products.map((item) => `<article class="products-inline-item"><div class="products-inline-cover">${item[3] ? `<img src="${item[3]}" alt="${item[0]} cover">` : `${item[0]}<br>Image`}</div><h3>${item[0]}</h3>${item[2] ? `<span class="products-inline-age">${item[2]}</span>` : ''}<p>${item[1]}</p></article>`).join('');
+        inlineProducts.hidden = false;
+        inlineProducts.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
-    document.querySelector('#shop-modal .shop-modal-close').addEventListener('click', () => shopModal.hidden = true);
-    document.querySelector('#product-detail-modal .shop-modal-close').addEventListener('click', () => detailModal.hidden = true);
-    shopModal.addEventListener('click', (event) => { if (event.target === shopModal) shopModal.hidden = true; });
     const revealTargets = document.querySelectorAll('.section-kicker, .copy-title, .shop-heading, .client-statement, .client-copy, .client-created, .client-audience, .client-ready');
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const revealObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
