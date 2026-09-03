@@ -351,16 +351,33 @@
       text-transform: uppercase;
     }
     .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      --card-w: min(74vw, 300px);
+      --peek: calc((100% - var(--card-w)) / 2);
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
       gap: 18px;
       align-items: stretch;
+      /* Left peek; right side gets one extra card-width of room so the
+         last clone can fully scroll into view before the wrap-back. */
+      padding: 4px calc(var(--peek) + var(--card-w) + 24px) 18px var(--peek);
+    }
+    .product-grid::-webkit-scrollbar { display: none; }
+    @media (min-width: 841px) {
+      .product-grid { --card-w: clamp(300px, 23vw, 380px); --peek: 28px; gap: 24px; }
     }
     .product-card {
       display: flex;
       flex-direction: column;
+      flex: 0 0 var(--card-w);
       min-width: 0;
       min-height: 400px;
+      scroll-snap-align: start;
       padding: 14px;
       border: 1px solid #e6c991;
       border-radius: 16px;
@@ -440,7 +457,7 @@
     .product-card .shop-button { margin-bottom: 0; }
     .product-card p { margin-bottom: 18px; }
     .product-card .shop-button.is-coming-soon { pointer-events: none; filter: grayscale(.22); opacity: .78; }
-    @media (min-width: 841px) { .product-card.is-clone { display: none; } }
+
     .shop-details {
       display: grid;
       grid-template-columns: 1fr 1.35fr;
@@ -669,7 +686,7 @@
         padding: 14px 82px;
         font-size: clamp(2rem, 2.1vw, 2.65rem);
       }
-      .product-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 22px; }
+      .product-grid { gap: 26px; }
       .product-card {
         min-height: 500px;
         padding: 18px;
@@ -824,7 +841,7 @@
       .footer-brand .image-spec { margin-top: 3px; font-size: .48rem; }
       .footer-social { justify-content: center; gap: 8px; }
       .footer-social a { min-width: 44px; min-height: 44px; font-size: .85rem; }
-      .product-grid { grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 10px; }
+
       .product-card { min-height: 0; padding: 12px; border-radius: 12px; }
       .product-frame { min-height: 0; padding: 9px; }
       .product-frame strong { font-size: .78rem; }
@@ -852,7 +869,7 @@
       .benefit-strip { grid-template-columns: 1fr; }
       .benefit, .benefit:nth-child(even) { border-right: 0; }
       .benefit:last-child { grid-column: auto; }
-      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
     }
     /* Mid-size screens (841–1080px): the five feature columns get tighter, so
        scale the icons/text down a touch instead of letting words clip. */
@@ -886,27 +903,7 @@
       .hero-benefits .benefit:nth-child(even) { border-right: 0; }
       .hero-benefits .benefit:last-child { grid-column: 1 / -1; border-right: 0; border-bottom: 0; }
       .hero-benefits .benefit-icon { flex-basis: 30px; width: 30px; height: 30px; font-size: 15px; }
-      .product-grid {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        overscroll-behavior-x: contain;
-        scroll-behavior: smooth;
-        scroll-snap-type: x mandatory;
-        scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
-        gap: 14px;
-        /* Left peek; right side gets one extra card-width of room so the
-           last clone can fully scroll into view before the wrap-back. */
-        padding: 4px calc((100% - min(74vw, 300px)) / 2 + min(74vw, 300px) + 24px) 18px calc((100% - min(74vw, 300px)) / 2);
-      }
-      .product-grid::-webkit-scrollbar { display: none; }
-      .product-card {
-        flex: 0 0 min(74vw, 300px);
-        min-height: 0;
-        scroll-snap-align: start;
-      }
-      .product-frame { min-height: 0; }
+
     }
     /* Stack the lower information cards before their copy becomes cramped.
        The panda placeholder is decorative, so it is removed on small screens. */
@@ -1553,7 +1550,6 @@
       const track = document.getElementById('shop-products');
       if (!track) return;
       const cardCount = track.children.length;
-      const mobileQuery = window.matchMedia('(max-width: 840px)');
       let clones = [];
       let scrollTimer = null;
       let jumpLock = false;
@@ -1624,23 +1620,7 @@
         track.addEventListener('scrollend', settle, { passive: true });
         track.addEventListener('scroll', onScroll, { passive: true });
       };
-      const disable = () => {
-        if (!enabled) return;
-        enabled = false;
-        track.removeEventListener('scrollend', settle);
-        track.removeEventListener('scroll', onScroll);
-        clearTimeout(scrollTimer);
-        removeClones();
-        track.style.scrollSnapType = '';
-        track.style.scrollBehavior = '';
-        track.scrollLeft = 0;
-      };
-
-      if (mobileQuery.matches) enable();
-      mobileQuery.addEventListener('change', (event) => {
-        if (event.matches) enable();
-        else disable();
-      });
+      enable();
     })();
   </script>
 </body>
