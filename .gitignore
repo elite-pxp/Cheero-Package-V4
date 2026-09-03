@@ -1,0 +1,7 @@
+# macOS AppleDouble metadata
+._*
+.DS_Store
+
+# Local tooling artifacts
+.playwright-cli/
+.freebuff/
