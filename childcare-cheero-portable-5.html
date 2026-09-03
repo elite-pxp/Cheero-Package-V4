@@ -241,7 +241,7 @@
       background-attachment: fixed;
     }
     .shop-section-inner {
-      width: min(1420px, calc(100% - 4px));
+      width: min(1500px, calc(100% - 4px));
       margin: 0 auto;
     }
     .shop-intro {
@@ -352,15 +352,15 @@
     }
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
       align-items: stretch;
     }
     .product-card {
       display: flex;
       flex-direction: column;
       min-width: 0;
-      min-height: 365px;
+      min-height: 400px;
       padding: 14px;
       border: 1px solid #e6c991;
       border-radius: 16px;
@@ -370,7 +370,8 @@
     .product-frame {
       display: grid;
       place-content: center;
-      min-height: 205px;
+      aspect-ratio: 4 / 5;
+      min-height: 0;
       padding: 10px;
       border: 2px dashed #c49a55;
       border-radius: 10px;
@@ -380,6 +381,18 @@
     }
     .product-frame strong { font: 800 .78rem/1.08 "Baloo 2", Arial, sans-serif; }
     .product-frame small { display: block; margin-top: 4px; font: 800 .62rem/1.2 "Baloo 2", Arial, sans-serif; }
+    .product-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .product-frame.has-image {
+      padding: 0;
+      border-style: solid;
+      overflow: hidden;
+      background: none;
+    }
     .product-card h3 {
       margin: 11px 0 6px;
       color: #172f6a;
@@ -387,10 +400,10 @@
       text-align: center;
       text-transform: uppercase;
     }
-    .product-card:nth-child(2) h3 { color: #a7193f; }
-    .product-card:nth-child(3) h3 { color: #3f6f2e; }
-    .product-card:nth-child(4) h3 { color: #5b3977; }
-    .product-card:nth-child(6) h3 { color: #bf591c; }
+    .product-card.pc-lessons h3 { color: #a7193f; }
+    .product-card.pc-posters h3 { color: #3f6f2e; }
+    .product-card.pc-coloring h3 { color: #5b3977; }
+    .product-card.pc-bags h3 { color: #bf591c; }
     .product-card p {
       min-height: 48px;
       margin: 0 0 10px;
@@ -412,10 +425,10 @@
       text-align: center;
       text-transform: uppercase;
     }
-    .product-card:nth-child(2) .shop-button { background: #a7193f; box-shadow: inset 0 2px rgba(255,255,255,.25), 0 3px #681f31; }
-    .product-card:nth-child(3) .shop-button { background: #3f712e; box-shadow: inset 0 2px rgba(255,255,255,.25), 0 3px #285220; }
-    .product-card:nth-child(4) .shop-button { background: #5b3977; box-shadow: inset 0 2px rgba(255,255,255,.25), 0 3px #3c2551; }
-    .product-card:nth-child(6) .shop-button { background: #bf591c; box-shadow: inset 0 2px rgba(255,255,255,.25), 0 3px #873b13; }
+    .product-card.pc-lessons .shop-button { background: #a7193f; box-shadow: inset 0 2px rgba(255,255,255,.25), 0 3px #681f31; }
+    .product-card.pc-posters .shop-button { background: #3f712e; box-shadow: inset 0 2px rgba(255,255,255,.25), 0 3px #285220; }
+    .product-card.pc-coloring .shop-button { background: #5b3977; box-shadow: inset 0 2px rgba(255,255,255,.25), 0 3px #3c2551; }
+    .product-card.pc-bags .shop-button { background: #bf591c; box-shadow: inset 0 2px rgba(255,255,255,.25), 0 3px #873b13; }
     .product-spec {
       display: block;
       margin-top: 8px;
@@ -427,6 +440,7 @@
     .product-card .shop-button { margin-bottom: 0; }
     .product-card p { margin-bottom: 18px; }
     .product-card .shop-button.is-coming-soon { pointer-events: none; filter: grayscale(.22); opacity: .78; }
+    @media (min-width: 841px) { .product-card.is-clone { display: none; } }
     .shop-details {
       display: grid;
       grid-template-columns: 1fr 1.35fr;
@@ -655,13 +669,13 @@
         padding: 14px 82px;
         font-size: clamp(2rem, 2.1vw, 2.65rem);
       }
-      .product-grid { gap: 18px; }
+      .product-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 22px; }
       .product-card {
-        min-height: 470px;
+        min-height: 500px;
         padding: 18px;
         border-radius: 19px;
       }
-      .product-frame { min-height: 250px; }
+      .product-frame { min-height: 0; }
       .product-frame strong { font-size: .95rem; }
       .product-frame small { font-size: .75rem; }
       .product-card h3 { margin-top: 15px; font-size: 1.4rem; }
@@ -811,8 +825,8 @@
       .footer-social { justify-content: center; gap: 8px; }
       .footer-social a { min-width: 44px; min-height: 44px; font-size: .85rem; }
       .product-grid { grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 10px; }
-      .product-card { min-height: 360px; padding: 12px; border-radius: 12px; }
-      .product-frame { min-height: 170px; padding: 9px; }
+      .product-card { min-height: 0; padding: 12px; border-radius: 12px; }
+      .product-frame { min-height: 0; padding: 9px; }
       .product-frame strong { font-size: .78rem; }
       .product-card h3 { font-size: 1.05rem; }
       .product-card p { min-height: 54px; font-size: .78rem; }
@@ -872,6 +886,27 @@
       .hero-benefits .benefit:nth-child(even) { border-right: 0; }
       .hero-benefits .benefit:last-child { grid-column: 1 / -1; border-right: 0; border-bottom: 0; }
       .hero-benefits .benefit-icon { flex-basis: 30px; width: 30px; height: 30px; font-size: 15px; }
+      .product-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        gap: 14px;
+        /* Left peek; right side gets one extra card-width of room so the
+           last clone can fully scroll into view before the wrap-back. */
+        padding: 4px calc((100% - min(74vw, 300px)) / 2 + min(74vw, 300px) + 24px) 18px calc((100% - min(74vw, 300px)) / 2);
+      }
+      .product-grid::-webkit-scrollbar { display: none; }
+      .product-card {
+        flex: 0 0 min(74vw, 300px);
+        min-height: 0;
+        scroll-snap-align: start;
+      }
+      .product-frame { min-height: 0; }
     }
     /* Stack the lower information cards before their copy becomes cramped.
        The panda placeholder is decorative, so it is removed on small screens. */
@@ -1195,6 +1230,8 @@
     .shop-modal-checkout { display: inline-grid; place-items: center; min-height: 46px; padding: 10px 22px; border: 2px solid #4b2713; border-radius: 10px; background: linear-gradient(180deg,#f3c76c,#d99d3e); box-shadow: 0 4px #5a2d12; color: #4b2713; font: 800 .9rem/1 "Baloo 2", Arial, sans-serif; text-decoration: none; }
     .shop-modal-item { display: flex; flex: 0 0 min(270px, 78vw); flex-direction: column; min-height: 315px; padding: 12px; border: 2px solid #dfb968; border-radius: 14px; background: #fffdf5; scroll-snap-align: start; text-align: center; }
     .shop-modal-item-image { aspect-ratio: 1 / 1; min-height: 0; margin-bottom: 10px; font-size: .57rem; }
+    .shop-modal-item-image.has-image, .shop-modal-selected-image.has-image { position: relative; padding: 0; border-style: solid; overflow: hidden; background: none; }
+    .shop-modal-item-image.has-image img, .shop-modal-selected-image.has-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .shop-modal-item strong { color: #192f70; font: 400 1.1rem/1.1 "Fredoka One", "Baloo 2", sans-serif; }
     .scroll-reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
     .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
@@ -1311,42 +1348,42 @@
         <h2 class="shop-heading">Shop Childcare CHEERO</h2>
         <p class="copy-lead" style="margin-bottom:28px">Learning Resources + CHEERO Essentials for Your Little Learners. Choose the products you need or explore our age-appropriate curriculum bundles.</p>
         <div id="shop-products" class="product-grid">
-          <article class="product-card">
-            <div class="product-frame"><strong>IMAGE PLACEMENT</strong><small>Original: homework booklet set</small></div>
+          <article class="product-card pc-homework">
+            <div class="product-frame has-image"><img src="https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99fb7ea612b72e8fa1b6b4.png" alt="Homework booklet set cover"></div>
             <h3>Homework<br>Booklets</h3>
             <p>Bring learning home with age-appropriate activities that reinforce early learning concepts.</p>
             <a class="shop-button" href="#section-4">Shop Homework Booklets</a>
-            <span class="product-spec">Create at 1200 × 900 px · 4:3</span>
+            <span class="product-spec">Create at 1000 × 1250 px · 4:5</span>
           </article>
-          <article class="product-card">
-            <div class="product-frame"><strong>IMAGE PLACEMENT</strong><small>Original: teacher plan booklet set</small></div>
+          <article class="product-card pc-lessons">
+            <div class="product-frame has-image"><img src="https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99fb7e0e3d7a2f06e76b22.png" alt="Teacher lesson plan booklet set cover"></div>
             <h3>Teacher Lesson<br>Plan Booklets</h3>
             <p>Plan easier and teach with purpose using organized, consistent lesson resources.</p>
             <a class="shop-button" href="#section-4">Shop Lesson Plans</a>
-            <span class="product-spec">Create at 1200 × 900 px · 4:3</span>
+            <span class="product-spec">Create at 1000 × 1250 px · 4:5</span>
           </article>
-          <article class="product-card">
+          <article class="product-card pc-posters">
             <div class="product-frame"><strong>IMAGE PLACEMENT</strong><small>Original: learning poster set</small></div>
             <h3>Learning<br>Posters</h3>
             <p>Turn your walls into learning opportunities with colorful CHEERO characters.</p>
             <span class="shop-button is-coming-soon">Locked · Coming Soon</span>
-            <span class="product-spec">Create at 1200 × 900 px · 4:3</span>
+            <span class="product-spec">Create at 1000 × 1250 px · 4:5</span>
           </article>
-          <article class="product-card">
+          <article class="product-card pc-coloring">
             <div class="product-frame"><strong>IMAGE PLACEMENT</strong><small>Original: coloring book set</small></div>
             <h3>Coloring<br>Books</h3>
             <p>Color, create, and learn with familiar characters and child-friendly pages.</p>
             <span class="shop-button is-coming-soon">Locked · Coming Soon</span>
             <span class="product-spec">Create at 1000 × 1250 px · 4:5</span>
           </article>
-          <article class="product-card">
+          <article class="product-card pc-shirts">
             <div class="product-frame"><strong>IMAGE PLACEMENT</strong><small>Original: red &amp; navy shirt pair</small></div>
             <h3>Childcare<br>CHEERO Shirts</h3>
             <p>Wear the CHEERO spirit for students, events, special activities, and gifts.</p>
             <span class="shop-button is-coming-soon">Locked · Coming Soon</span>
             <span class="product-spec">Create at 1000 × 1250 px · 4:5</span>
           </article>
-          <article class="product-card">
+          <article class="product-card pc-bags">
             <div class="product-frame"><strong>IMAGE PLACEMENT</strong><small>Original: drawstring bag pair</small></div>
             <h3>Drawstring<br>Bags</h3>
             <p>Take CHEERO wherever you go—perfect for learning materials and essentials.</p>
@@ -1454,38 +1491,41 @@
     const modalCopy = document.getElementById('shop-modal-copy');
     const modalItems = document.getElementById('shop-modal-items');
     const detailModal = document.getElementById('product-detail-modal');
-    document.querySelectorAll('.product-card .shop-button').forEach((button) => {
-      button.addEventListener('click', (event) => {
+    document.getElementById('shop-products').addEventListener('click', (event) => {
+      const button = event.target.closest('.product-card .shop-button');
+      if (!button) return;
+      {
         event.preventDefault();
         const card = button.closest('.product-card');
         const title = card.querySelector('h3').innerText.replace(/\n/g, ' ');
+        const titleUp = title.toUpperCase();
         const description = card.querySelector('p').innerText;
         modalTitle.textContent = title;
         modalCopy.textContent = description;
         const homework = [
-          ['Starter Homework Booklet', 'The Starter Homework Booklet is created for infants ages 6 to 10 months. It gives families simple, age-appropriate activities that connect learning at home with the Childcare Cheero Christian Curriculum. Each activity supports early development while introducing faith, family connection, and meaningful learning experiences designed for our youngest learners.', 'Ages 6 to 10 Months'],
-          ['Freshman Homework Booklet', 'The Freshman Homework Booklet is designed for Toddler 1’s, ages 12 to 23 months. It includes simple activities families can complete at home to reinforce skills and concepts introduced during the school day. Activities support early learning, growing independence, and faith-based connections.', 'Toddler 1’s — Ages 12 to 23 Months'],
-          ['Sophomore Homework Booklet', 'The Sophomore Homework Booklet provides engaging at-home activities that help children practice classroom learning, language, thinking, creativity, early skills, and Christian learning.', 'Toddler 2’s — Ages 24 to 35 Months'],
-          ['Junior Homework Booklet', 'The Junior Homework Booklet extends classroom learning into the home with activities that support early academics, communication, creativity, independence, faith-based learning, and family connection.', 'Preschool 3’s — Age 3'],
-          ['Senior Homework Booklet', 'The Senior Homework Booklet provides purposeful at-home activities that reinforce classroom concepts and support kindergarten readiness, communication, problem-solving, independence, and Christian learning.', 'Pre-K 4’s — Age 4']
+          ['Starter Homework Booklet', 'The Starter Homework Booklet is created for infants ages 6 weeks to 11 months. It gives families simple, age-appropriate activities that connect learning at home with the Childcare Cheero Christian Curriculum. Each activity supports early development while introducing faith, family connection, and meaningful learning experiences designed for our youngest learners.', 'Infants — Ages 6 Weeks to 11 Months', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4f1d9a153ac43f93d57.png'],
+          ['Freshman Homework Booklet', 'The Freshman Homework Booklet is designed for Toddler 1’s, ages 12 to 23 months. It includes simple activities families can complete at home to reinforce skills and concepts introduced during the school day. Activities are appropriate for this stage of development and support early learning, growing independence, and faith-based connections.', 'Toddler 1’s — Ages 12 to 23 Months', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4f0a612b72e8fa132b9.png'],
+          ['Sophomore Homework Booklet', 'The Sophomore Homework Booklet is designed for Toddler 2’s, ages 24 to 35 months. It provides engaging at-home activities that help children practice what they are learning in the classroom. Families can use the booklet to support language, thinking, creativity, early skills, and Christian learning through activities made for this age group.', 'Toddler 2’s — Ages 24 to 35 Months', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4f0fac7854efe53531c.png'],
+          ['Junior Homework Booklet', 'The Junior Homework Booklet is created for Preschool 3’s, age 3. It extends classroom learning into the home with activities that encourage children to practice important preschool skills with their families. The booklet supports early academics, communication, creativity, independence, and faith-based learning while helping families stay connected to what their child is learning.', 'Preschool 3’s — Age 3', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4f0fac7854efe535312.png'],
+          ['Senior Homework Booklet', 'The Senior Homework Booklet is designed for Pre-K 4’s, age 4. It provides purposeful at-home activities that reinforce classroom concepts and help children continue building the skills they need as they prepare for kindergarten. Activities support early academics, communication, problem-solving, independence, and Christian learning while giving families an easy way to participate in their child’s education.', 'Pre-K 4’s — Age 4', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4edfac7854efe535293.png']
         ];
         const lessons = [
-          ['Starter Teacher Lesson Plan Booklet — Infants, Ages 6 Weeks to 11 Months', 'Lesson plans and guidance for teachers working with infants, including developmentally appropriate experiences, weekly instruction, and faith-based learning.'],
-          ['Freshman Teacher Lesson Plan Booklet — Toddler 1’s, Ages 12 to 23 Months', 'Organized lesson plans for age-appropriate learning experiences, classroom activities, and Christian curriculum connections.'],
-          ['Sophomore Teacher Lesson Plan Booklet — Toddler 2’s, Ages 24 to 35 Months', 'Structured lesson plans and activities for learning concepts, hands-on experiences, and faith-based lessons for this important stage.'],
-          ['Junior Teacher Lesson Plan Booklet — Preschool 3’s, Age 3', 'Organized lesson plans supporting early academics, language, creativity, social development, classroom exploration, and Christian learning.'],
-          ['Senior Teacher Lesson Plan Booklet — Pre-K 4’s, Age 4', 'Organized lesson plans and classroom activities supporting kindergarten readiness, early academics, independence, communication, character, and faith.']
+          ['Starter Teacher Lesson Plan Booklet — Infants, Ages 6 Weeks to 11 Months', 'Lesson plans and guidance for teachers working with infants, including developmentally appropriate experiences, weekly instruction, and faith-based learning.', null, 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4edf8c3a55cc272f7aa.png'],
+          ['Freshman Teacher Lesson Plan Booklet — Toddler 1’s, Ages 12 to 23 Months', 'Organized lesson plans for age-appropriate learning experiences, classroom activities, and Christian curriculum connections.', null, 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4eda1f3f48f4bc369ad.png'],
+          ['Sophomore Teacher Lesson Plan Booklet — Toddler 2’s, Ages 24 to 35 Months', 'Structured lesson plans and activities for learning concepts, hands-on experiences, and faith-based lessons for this important stage.', null, 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4eda1f3f48f4bc369b6.png'],
+          ['Junior Teacher Lesson Plan Booklet — Preschool 3’s, Age 3', 'Organized lesson plans supporting early academics, language, creativity, social development, classroom exploration, and Christian learning.', null, 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4edf20cf78ef1192685.png'],
+          ['Senior Teacher Lesson Plan Booklet — Pre-K 4’s, Age 4', 'Organized lesson plans and classroom activities supporting kindergarten readiness, early academics, independence, communication, character, and faith.', null, 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4ed7e31763f5dd9d39d.png']
         ];
-        const products = title.includes('Homework') ? homework : title.includes('Teacher') ? lessons : ['Starter', 'Freshman', 'Sophomore', 'Junior', 'Senior'].map((level) => [`${level} ${title}`, description]);
-        if (title.includes('Homework') || title.includes('Teacher')) modalCopy.textContent = products[0][1];
+        const products = titleUp.includes('HOMEWORK') ? homework : titleUp.includes('TEACHER') ? lessons : ['Starter', 'Freshman', 'Sophomore', 'Junior', 'Senior'].map((level) => [`${level} ${title}`, description]);
+        if (titleUp.includes('HOMEWORK') || titleUp.includes('TEACHER')) modalCopy.textContent = products[0][1];
         const selectedImage = document.getElementById('shop-modal-selected-image');
         const selectedTitle = document.getElementById('shop-modal-selected-title');
         const selectedCopy = document.getElementById('shop-modal-selected-copy');
-        const selectProduct = (index) => { const item = products[index]; selectedImage.innerHTML = `${item[0]}<br>Cover Image`; selectedTitle.textContent = item[0]; selectedCopy.textContent = item[1]; document.getElementById('shop-modal-price').textContent = '$29.99'; detailModal.hidden = false; };
-        modalItems.innerHTML = products.map((item, index) => `<article class="shop-modal-item"><div class="shop-modal-item-image">${item[0]}<br>Product Image</div><strong>${item[0]}</strong>${item[2] ? `<span>${item[2]}</span>` : ''}<button class="shop-modal-buy" type="button" data-index="${index}">View Product</button></article>`).join('');
+        const selectProduct = (index) => { const item = products[index]; selectedImage.innerHTML = item[3] ? `<img src="${item[3]}" alt="${item[0]} cover">` : `${item[0]}<br>Cover Image`; selectedImage.classList.toggle('has-image', !!item[3]); selectedTitle.textContent = item[0]; selectedCopy.textContent = item[1]; document.getElementById('shop-modal-price').textContent = '$29.99'; detailModal.hidden = false; };
+        modalItems.innerHTML = products.map((item, index) => `<article class="shop-modal-item"><div class="shop-modal-item-image${item[3] ? ' has-image' : ''}">${item[3] ? `<img src="${item[3]}" alt="${item[0]} cover">` : `${item[0]}<br>Product Image`}</div><strong>${item[0]}</strong>${item[2] ? `<span>${item[2]}</span>` : ''}<button class="shop-modal-buy" type="button" data-index="${index}">View Product</button></article>`).join('');
         modalItems.querySelectorAll('.shop-modal-buy').forEach((itemButton) => itemButton.addEventListener('click', () => selectProduct(Number(itemButton.dataset.index))));
         shopModal.hidden = false;
-      });
+      }
     });
     document.querySelector('#shop-modal .shop-modal-close').addEventListener('click', () => shopModal.hidden = true);
     document.querySelector('#product-detail-modal .shop-modal-close').addEventListener('click', () => detailModal.hidden = true);
@@ -1497,6 +1537,102 @@
       }), { threshold: .2 });
       revealTargets.forEach((target) => { target.classList.add('scroll-reveal'); revealObserver.observe(target); });
     }
+    /* Infinite swipe carousel: on touch screens the product cards loop in
+       both directions. Clones are placed around the six originals and the
+       scroll position is re-mapped to the middle set once it settles. */
+    (function () {
+      const track = document.getElementById('shop-products');
+      if (!track) return;
+      const cardCount = track.children.length;
+      const mobileQuery = window.matchMedia('(max-width: 840px)');
+      let clones = [];
+      let scrollTimer = null;
+      let jumpLock = false;
+      let enabled = false;
+
+      const measureStep = () => {
+        const card = track.querySelector('.product-card');
+        const gap = parseFloat(getComputedStyle(track).gap) || 0;
+        return card ? card.getBoundingClientRect().width + gap : 0;
+      };
+      const padLeft = () => parseFloat(getComputedStyle(track).paddingLeft) || 0;
+
+      const buildClones = () => {
+        if (clones.length) return;
+        const originals = Array.from(track.children);
+        const head = originals.map((card) => card.cloneNode(true));
+        const tail = originals.map((card) => card.cloneNode(true));
+        head.concat(tail).forEach((card) => card.classList.add('is-clone'));
+        head.forEach((card) => track.appendChild(card));
+        tail.forEach((card) => track.prepend(card));
+        clones = head.concat(tail);
+      };
+      const removeClones = () => {
+        clones.forEach((card) => card.remove());
+        clones = [];
+      };
+
+      const settle = () => {
+        if (jumpLock) return;
+        const step = measureStep();
+        if (!step) return;
+        const index = Math.round((track.scrollLeft - padLeft()) / step);
+        const total = track.children.length;
+        let target = index;
+        if (index < cardCount) target = index + cardCount;
+        else if (index >= total - cardCount) target = index - cardCount;
+        if (target === index) return;
+        jumpLock = true;
+        track.style.scrollSnapType = 'none';
+        track.style.scrollBehavior = 'auto';
+        track.scrollLeft = padLeft() + target * step;
+        requestAnimationFrame(() => {
+          track.style.scrollSnapType = '';
+          track.style.scrollBehavior = '';
+          jumpLock = false;
+        });
+      };
+      const onScroll = () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(settle, 130);
+      };
+
+      const positionAt = () => {
+        const step = measureStep();
+        track.style.scrollBehavior = 'auto';
+        track.scrollLeft = padLeft() + cardCount * step;
+        requestAnimationFrame(() => { track.style.scrollBehavior = ''; });
+        return step;
+      };
+
+      const enable = () => {
+        if (enabled) return;
+        enabled = true;
+        buildClones();
+        if (!positionAt()) {
+          window.addEventListener('load', () => { if (enabled) positionAt(); }, { once: true });
+        }
+        track.addEventListener('scrollend', settle, { passive: true });
+        track.addEventListener('scroll', onScroll, { passive: true });
+      };
+      const disable = () => {
+        if (!enabled) return;
+        enabled = false;
+        track.removeEventListener('scrollend', settle);
+        track.removeEventListener('scroll', onScroll);
+        clearTimeout(scrollTimer);
+        removeClones();
+        track.style.scrollSnapType = '';
+        track.style.scrollBehavior = '';
+        track.scrollLeft = 0;
+      };
+
+      if (mobileQuery.matches) enable();
+      mobileQuery.addEventListener('change', (event) => {
+        if (event.matches) enable();
+        else disable();
+      });
+    })();
   </script>
 </body>
 </html>
