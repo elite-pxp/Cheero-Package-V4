@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <title>Childcare CHEERO Christian Curriculum</title>
   <style>
     @font-face {
       font-family: "Lilita One";
@@ -160,6 +160,36 @@
       text-shadow: 0 1px 0 rgba(255,255,255,.7);
     }
     .hero-copy p span { display: block; white-space: nowrap; }
+    .hero-copy .hero-eyebrow {
+      margin: 0 0 .28rem;
+      color: #a7193f;
+      font: 400 clamp(.9rem, 1.55vw, 1.3rem)/1 "Lilita One", "Trebuchet MS", sans-serif;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+    .hero-copy .hero-subheading {
+      margin: .55rem auto 0;
+      color: #2c6430;
+      font: 400 clamp(1.05rem, 2.3vw, 1.85rem)/1 "Fredoka One", "Baloo 2", sans-serif;
+    }
+    .hero-copy .hero-body,
+    .hero-copy .hero-audience,
+    .hero-copy .hero-offerings,
+    .hero-copy .hero-ready {
+      max-width: 630px;
+      margin: .42rem auto 0;
+      color: #283329;
+      font: 800 clamp(1.05rem, 2vw, 1.5rem)/1.25 "Baloo 2", Arial, sans-serif;
+      text-shadow: 0 1px 0 rgba(255,255,255,.7);
+    }
+    .hero-copy .hero-audience { font-size: clamp(.57rem, .94vw, .84rem); }
+    .hero-copy .hero-offerings { font-size: clamp(.56rem, .9vw, .8rem); }
+    .hero-copy .hero-ready {
+      margin-top: .55rem;
+      color: #a7193f;
+      font-family: "Fredoka One", "Baloo 2", sans-serif;
+      font-size: clamp(.75rem, 1.25vw, 1.05rem);
+    }
     .hero-button {
       display: grid;
       place-items: center;
@@ -204,16 +234,104 @@
     }
     #section-3 {
       min-height: auto;
-      padding: clamp(92px, 10vw, 120px) 16px 62px;
+      padding: clamp(34px, 4vw, 56px) 16px 62px;
       background-image: url("https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a98422acf28d633650537cb.png");
       background-position: center center;
       background-size: cover;
       background-attachment: fixed;
     }
     .shop-section-inner {
-      width: min(1420px, calc(100% - 4px));
+      width: min(1500px, calc(100% - 4px));
       margin: 0 auto;
     }
+    .shop-intro {
+      max-width: 1100px;
+      margin: 0 auto clamp(30px, 4vw, 52px);
+      padding: 0 clamp(4px, 1vw, 14px);
+      color: #283329;
+    }
+    .shop-ribbon {
+      width: fit-content;
+      margin: 0 auto 28px;
+      padding: 9px 20px;
+      border: 2px solid #17316e;
+      border-radius: 999px;
+      background: #fff9df;
+      box-shadow: 0 3px 0 #17316e;
+      color: #17316e;
+      font: 800 clamp(.72rem, 1.3vw, .9rem)/1 "Baloo 2", Arial, sans-serif;
+      letter-spacing: .05em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .shop-intro-main { display: grid; grid-template-columns: 1.12fr .88fr; gap: clamp(22px, 4vw, 56px); align-items: center; }
+    .shop-overline { margin: 0 0 9px; color: #a7193f; font: 800 clamp(.9rem, 1.4vw, 1.08rem)/1 "Baloo 2", Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+    .shop-intro h2 { max-width: 620px; margin: 0; color: #192f70; font: 400 clamp(2rem, 4vw, 3.5rem)/.97 "Fredoka One", "Baloo 2", sans-serif; letter-spacing: -.035em; }
+    .shop-intro h2 span { display: block; color: #2c6430; }
+    .shop-lead { max-width: 610px; margin: 20px 0 0; color: #263128; font: 600 clamp(1.08rem, 1.7vw, 1.28rem)/1.62 "Trebuchet MS", Arial, sans-serif; }
+    .shop-audience-card { padding: 0; }
+    .shop-audience-card h3 { margin: 0 0 14px; color: #a7193f; font: 400 clamp(1.22rem, 2.1vw, 1.56rem)/1.1 "Fredoka One", "Baloo 2", sans-serif; }
+    .shop-audience-list { display: flex; flex-wrap: wrap; gap: 7px; margin: 0; padding: 0; list-style: none; }
+    .shop-audience-list li { padding: 7px 10px; border-radius: 999px; background: #e8f2e1; color: #214c24; font: 600 clamp(.78rem, 1.12vw, .88rem)/1.2 "Trebuchet MS", Arial, sans-serif; }
+    .shop-resource-bar { display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center; margin-top: clamp(22px, 3vw, 32px); padding-top: clamp(20px, 2.5vw, 28px); border-top: 2px solid rgba(196,154,85,.55); }
+    .shop-resource-bar p { margin: 0; color: #342f29; font: 600 clamp(1rem, 1.5vw, 1.14rem)/1.52 "Trebuchet MS", Arial, sans-serif; }
+    .shop-resource-bar strong { color: #192f70; }
+    .shop-resource-kicker { color: #a7193f !important; font-size: .82rem !important; font-weight: 800 !important; letter-spacing: .08em; text-transform: uppercase; }
+    .shop-cta-button { display: inline-grid; place-items: center; min-height: 46px; padding: 10px 18px; border: 2px solid #153064; border-radius: 10px; background: #192f70; box-shadow: 0 4px #112352; color: #fff9df; font: 800 clamp(.76rem, 1.2vw, .92rem)/1 "Baloo 2", Arial, sans-serif; text-align: center; text-decoration: none; }
+    .shop-cta-button:hover, .shop-cta-button:focus-visible { background: #2c6430; border-color: #214c24; box-shadow: 0 4px #18391b; outline: 0; }
+    /* Client-approved shop introduction: visual treatment only; copy remains verbatim. */
+    .shop-intro .client-statement { max-width: min(1120px, 92%); margin: 0 auto 26px; color: #192f70; font: 400 clamp(2.15rem, 4.6vw, 4rem)/1.04 "Fredoka One", "Baloo 2", sans-serif; letter-spacing: -.028em; text-align: center; text-shadow: 0 1px 0 rgba(25,47,112,.18); -webkit-text-stroke: .35px #192f70; }
+    .shop-intro .client-copy { max-width: 860px; margin: 0 auto; color: #263128; font: 600 clamp(1.05rem, 1.65vw, 1.24rem)/1.65 "Trebuchet MS", Arial, sans-serif; text-align: center; }
+    .shop-intro .client-copy strong { color: #192f70; }
+    .shop-intro .client-created { margin: 28px auto 11px; color: #a7193f; font: 800 clamp(1.22rem, 1.9vw, 1.48rem)/1 "Baloo 2", Arial, sans-serif; letter-spacing: .09em; text-align: center; text-transform: uppercase; }
+    .shop-intro .client-audience { max-width: 900px; margin: 0 auto 24px; color: #214c24; font: 600 clamp(1rem, 1.55vw, 1.16rem)/1.55 "Trebuchet MS", Arial, sans-serif; text-align: center; }
+    .shop-intro .client-ready { max-width: 860px; margin: 28px auto 0; padding-top: 23px; border-top: 2px solid rgba(196,154,85,.65); color: #a7193f; font: 400 clamp(1.35rem, 2.6vw, 2rem)/1.18 "Fredoka One", "Baloo 2", sans-serif; text-align: center; }
+    #section-3 .shop-intro-duplicate { display: none; }
+    .purpose-block-duplicate { display: none; }
+    .copy-section {
+      min-height: 0;
+      padding: clamp(36px, 5vw, 64px) 18px;
+      background: #fffaf0;
+    }
+    .copy-section:nth-of-type(even) {
+      background-color: #edf4df;
+      background-image:
+        linear-gradient(rgba(245, 250, 229, .55), rgba(255, 246, 214, .58)),
+        url("https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a98422acf28d633650537cb.png");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .hero + .copy-section { padding-top: clamp(52px, 7vw, 82px); }
+    .purpose-block { padding-bottom: clamp(24px, 3vw, 38px); }
+    .copy-wrap { width: min(1120px, 100%); margin: auto; }
+    .section-kicker { margin: 0 0 12px; color: #a7193f; font: 800 clamp(1rem, 1.55vw, 1.22rem)/1 "Baloo 2", Arial, sans-serif; letter-spacing: .12em; text-align: center; text-transform: uppercase; }
+    .copy-title { max-width: 860px; margin: 0 auto 18px; color: #192f70; font: 400 clamp(2rem, 4vw, 3.5rem)/1.04 "Fredoka One", "Baloo 2", sans-serif; text-align: center; }
+    .copy-title span { color: #2c6430; }
+    .copy-lead { max-width: 800px; margin: 0 auto; color: #263128; font: 600 clamp(1.04rem, 1.6vw, 1.2rem)/1.65 "Trebuchet MS", Arial, sans-serif; text-align: center; }
+    .purpose-grid, .audience-paths, .experience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 24px; }
+    .purpose-item, .path-card, .experience-item { padding: 22px; border: 2px solid #e0bd79; border-radius: 18px; background: #fffdf5; box-shadow: 0 4px 0 rgba(107,66,30,.14); }
+    .path-card { display: flex; flex-direction: column; gap: 14px; min-height: 250px; padding: 16px 22px 26px; text-align: center; }
+    .path-card h3, .path-card p { text-align: center; }
+    .path-card .copy-cta { margin: auto auto 0; }
+    .purpose-item strong, .path-card h3, .experience-item h3 { display: block; margin-bottom: 7px; color: #a7193f; font: 400 clamp(1.1rem, 2vw, 1.45rem)/1.08 "Fredoka One", "Baloo 2", sans-serif; }
+    .purpose-item p, .path-card p, .experience-item p { margin: 0; color: #344037; font: 600 .98rem/1.55 "Trebuchet MS", Arial, sans-serif; }
+    .path-card:nth-child(even) h3, .experience-item:nth-child(even) h3 { color: #2c6430; }
+    .copy-cta { display: table; margin: 30px auto 0; padding: 13px 22px; border: 2px solid #142555; border-radius: 10px; background: #192f70; box-shadow: 0 4px #112352; color: #fff9df; font: 800 1rem/1 "Baloo 2", Arial, sans-serif; text-decoration: none; }
+    .copy-cta:hover { background: #2c6430; }
+    .split-feature { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 42px); align-items: center; margin-top: 18px; }
+    .copy-list { columns: 2; gap: 26px; align-self: start; margin: 0; padding: 0; list-style: none; color: #263128; font: 700 clamp(1.02rem, 1.5vw, 1.22rem)/1.45 "Baloo 2", "Trebuchet MS", Arial, sans-serif; }
+    .copy-list li { display: flex; align-items: center; gap: 8px; min-height: 34px; break-inside: avoid; white-space: nowrap; }
+    .topic-icon { display: inline-grid; flex: 0 0 25px; width: 25px; height: 25px; place-items: center; border-radius: 8px; background: #c0184c; color: #fff9df; font: 800 .72rem/1 Arial, sans-serif; }
+    .copy-list li:nth-child(3n+2) .topic-icon { background: #2c7a3d; }
+    .copy-list li:nth-child(3n) .topic-icon { background: #1d4c91; }
+    .custom-callout { padding: clamp(26px, 5vw, 52px); border: 3px solid #4b2713; border-radius: 24px; background: repeating-linear-gradient(171deg, transparent 0 9px, rgba(59,28,10,.25) 10px 11px, transparent 12px 18px), linear-gradient(180deg, #ad703a 0%, #7b401e 52%, #663315 100%); box-shadow: inset 0 2px rgba(255,215,159,.65), inset 0 -4px rgba(68,30,10,.65), 0 6px rgba(58,28,11,.38); color: #fff9df; text-align: center; }
+    .custom-callout .section-kicker, .custom-callout .copy-title, .custom-callout .copy-lead { color: inherit; }
+    .custom-callout .copy-title span { color: #f4cf77; }
+    .custom-callout .copy-cta { border-color: #4b2713; background: linear-gradient(180deg, #f3c76c, #d99d3e); box-shadow: inset 0 2px rgba(255,255,255,.42), 0 4px #5a2d12; color: #4b2713; text-shadow: 0 1px rgba(255,248,221,.65); }
+    @media (max-width: 760px) { .copy-section { background-attachment: scroll; } .experience-grid, .split-feature { grid-template-columns: 1fr; } .purpose-grid, .audience-paths { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; } .purpose-item, .path-card { min-width: 0; padding: 11px 7px; border-radius: 12px; text-align: center; } .purpose-item strong, .purpose-item p, .path-card h3, .path-card p { text-align: center; } .purpose-item strong { font-size: .82rem; } .path-card { display: grid; grid-template-rows: 3em minmax(0, 1fr) auto; gap: 10px; } .path-card h3 { min-height: 0; margin: 0; font-size: .94rem; } .purpose-item p, .path-card p { min-height: 0; margin: 0; font-size: .66rem; line-height: 1.35; } .path-card .copy-cta { width: 100%; min-height: 38px; margin: 0 auto; padding: 7px 3px; font-size: .68rem; line-height: 1.1; text-align: center; } .copy-list { display: none; } }
+    @media (prefers-reduced-motion: reduce) { .copy-section { background-attachment: scroll; } }
     .shop-heading {
       width: fit-content;
       max-width: 100%;
@@ -234,15 +352,15 @@
     }
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
       align-items: stretch;
     }
     .product-card {
       display: flex;
       flex-direction: column;
       min-width: 0;
-      min-height: 365px;
+      min-height: 400px;
       padding: 14px;
       border: 1px solid #e6c991;
       border-radius: 16px;
@@ -252,7 +370,8 @@
     .product-frame {
       display: grid;
       place-content: center;
-      min-height: 205px;
+      aspect-ratio: 4 / 5;
+      min-height: 0;
       padding: 10px;
       border: 2px dashed #c49a55;
       border-radius: 10px;
@@ -262,6 +381,18 @@
     }
     .product-frame strong { font: 800 .78rem/1.08 "Baloo 2", Arial, sans-serif; }
     .product-frame small { display: block; margin-top: 4px; font: 800 .62rem/1.2 "Baloo 2", Arial, sans-serif; }
+    .product-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .product-frame.has-image {
+      padding: 0;
+      border-style: solid;
+      overflow: hidden;
+      background: none;
+    }
     .product-card h3 {
       margin: 11px 0 6px;
       color: #172f6a;
@@ -269,10 +400,10 @@
       text-align: center;
       text-transform: uppercase;
     }
-    .product-card:nth-child(2) h3 { color: #a7193f; }
-    .product-card:nth-child(3) h3 { color: #3f6f2e; }
-    .product-card:nth-child(4) h3 { color: #5b3977; }
-    .product-card:nth-child(6) h3 { color: #bf591c; }
+    .product-card.pc-lessons h3 { color: #a7193f; }
+    .product-card.pc-posters h3 { color: #3f6f2e; }
+    .product-card.pc-coloring h3 { color: #5b3977; }
+    .product-card.pc-bags h3 { color: #bf591c; }
     .product-card p {
       min-height: 48px;
       margin: 0 0 10px;
@@ -294,10 +425,10 @@
       text-align: center;
       text-transform: uppercase;
     }
-    .product-card:nth-child(2) .shop-button { background: #a7193f; box-shadow: inset 0 2px rgba(255,255,255,.25), 0 3px #681f31; }
-    .product-card:nth-child(3) .shop-button { background: #3f712e; box-shadow: inset 0 2px rgba(255,255,255,.25), 0 3px #285220; }
-    .product-card:nth-child(4) .shop-button { background: #5b3977; box-shadow: inset 0 2px rgba(255,255,255,.25), 0 3px #3c2551; }
-    .product-card:nth-child(6) .shop-button { background: #bf591c; box-shadow: inset 0 2px rgba(255,255,255,.25), 0 3px #873b13; }
+    .product-card.pc-lessons .shop-button { background: #a7193f; box-shadow: inset 0 2px rgba(255,255,255,.25), 0 3px #681f31; }
+    .product-card.pc-posters .shop-button { background: #3f712e; box-shadow: inset 0 2px rgba(255,255,255,.25), 0 3px #285220; }
+    .product-card.pc-coloring .shop-button { background: #5b3977; box-shadow: inset 0 2px rgba(255,255,255,.25), 0 3px #3c2551; }
+    .product-card.pc-bags .shop-button { background: #bf591c; box-shadow: inset 0 2px rgba(255,255,255,.25), 0 3px #873b13; }
     .product-spec {
       display: block;
       margin-top: 8px;
@@ -305,12 +436,19 @@
       font: 800 .7rem/1.25 "Baloo 2", Arial, sans-serif;
       text-align: center;
     }
+    .product-spec { display: none; }
+    .product-card .shop-button { margin-bottom: 0; }
+    .product-card p { margin-bottom: 18px; }
+    .product-card .shop-button.is-coming-soon { pointer-events: none; filter: grayscale(.22); opacity: .78; }
+    @media (min-width: 841px) { .product-card.is-clone { display: none; } }
     .shop-details {
       display: grid;
       grid-template-columns: 1fr 1.35fr;
       gap: clamp(14px, 2vw, 28px);
       margin-top: clamp(28px, 4vw, 52px);
     }
+    /* Superseded by the new audience and curriculum sections below. */
+    #section-3 .shop-details { display: none; }
     .detail-panel {
       position: relative;
       min-width: 0;
@@ -450,7 +588,7 @@
       padding: 11px 14px;
       border-right: 1px dotted #c2a46e;
       color: #28342d;
-      font: 900 .72rem/1.2 Arial, sans-serif;
+      font: 900 clamp(.95rem, 1.5vw, 1.2rem)/1.2 Arial, sans-serif;
     }
     .benefit:last-child { border-right: 0; }
     .benefit-icon {
@@ -524,20 +662,20 @@
         height: 48px;
         font-size: 22px;
       }
-      #section-3 { padding: 110px 34px 82px; }
+      #section-3 { padding: 48px 34px 72px; }
       .shop-section-inner { width: min(1900px, calc(100% - 24px)); }
       .shop-heading {
         margin-bottom: 36px;
         padding: 14px 82px;
         font-size: clamp(2rem, 2.1vw, 2.65rem);
       }
-      .product-grid { gap: 18px; }
+      .product-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 22px; }
       .product-card {
-        min-height: 470px;
+        min-height: 500px;
         padding: 18px;
         border-radius: 19px;
       }
-      .product-frame { min-height: 250px; }
+      .product-frame { min-height: 0; }
       .product-frame strong { font-size: .95rem; }
       .product-frame small { font-size: .75rem; }
       .product-card h3 { margin-top: 15px; font-size: 1.4rem; }
@@ -687,8 +825,8 @@
       .footer-social { justify-content: center; gap: 8px; }
       .footer-social a { min-width: 44px; min-height: 44px; font-size: .85rem; }
       .product-grid { grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 10px; }
-      .product-card { min-height: 360px; padding: 12px; border-radius: 12px; }
-      .product-frame { min-height: 170px; padding: 9px; }
+      .product-card { min-height: 0; padding: 12px; border-radius: 12px; }
+      .product-frame { min-height: 0; padding: 9px; }
       .product-frame strong { font-size: .78rem; }
       .product-card h3 { font-size: 1.05rem; }
       .product-card p { min-height: 54px; font-size: .78rem; }
@@ -734,7 +872,7 @@
       .wood-nav { justify-content: flex-start; gap: 13px; width: calc(100% - 16px); padding-inline: 12px; overflow-x: auto; scrollbar-width: none; }
       .wood-nav::-webkit-scrollbar { display: none; }
       .hero-benefits {
-        bottom: -42px;
+        bottom: 0;
         width: calc(100% - 18px);
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -748,6 +886,27 @@
       .hero-benefits .benefit:nth-child(even) { border-right: 0; }
       .hero-benefits .benefit:last-child { grid-column: 1 / -1; border-right: 0; border-bottom: 0; }
       .hero-benefits .benefit-icon { flex-basis: 30px; width: 30px; height: 30px; font-size: 15px; }
+      .product-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        gap: 14px;
+        /* Left peek; right side gets one extra card-width of room so the
+           last clone can fully scroll into view before the wrap-back. */
+        padding: 4px calc((100% - min(74vw, 300px)) / 2 + min(74vw, 300px) + 24px) 18px calc((100% - min(74vw, 300px)) / 2);
+      }
+      .product-grid::-webkit-scrollbar { display: none; }
+      .product-card {
+        flex: 0 0 min(74vw, 300px);
+        min-height: 0;
+        scroll-snap-align: start;
+      }
+      .product-frame { min-height: 0; }
     }
     /* Stack the lower information cards before their copy becomes cramped.
        The panda placeholder is decorative, so it is removed on small screens. */
@@ -877,7 +1036,7 @@
         border: 0;
         opacity: 0;
         visibility: hidden;
-        font-size: .96rem;
+        font-size: 1.2rem;
         animation: mobile-benefit-cycle 15s ease-in-out infinite;
       }
       .hero-benefits .benefit:nth-child(1) { animation-delay: 0s; }
@@ -905,6 +1064,185 @@
       .hero-benefits .benefit { display: none; animation: none; }
       .hero-benefits .benefit:first-child { display: flex; opacity: 1; visibility: visible; transform: none; }
     }
+    /* Compact copy treatment keeps the complete curriculum message readable over the hero art. */
+    .hero-copy { top: 20%; width: min(680px, calc(100% - 32px)); }
+    .hero-copy h1 { gap: 3px; }
+    .hero-copy .hero-tagline {
+      display: inline-block;
+      padding: .25em .7em;
+      color: #15245c;
+      background: rgba(255, 255, 255, .92);
+      border: 2px solid #15245c;
+      border-radius: 999px;
+      box-shadow: 0 2px 0 rgba(21, 36, 92, .22);
+      text-shadow: none;
+    }
+    .hero-copy h1 .hero-kicker { font-size: clamp(1.85rem, 3.5vw, 3.8rem); line-height: .94; }
+    .hero-copy h1 strong { font-size: clamp(1.45rem, 2.75vw, 3rem); line-height: .96; }
+    .hero-actions { top: 73%; }
+    @media (min-width: 1400px) {
+      .hero-copy h1 .hero-kicker { font-size: clamp(3.6rem, 4vw, 4.7rem); }
+      .hero-copy h1 strong { font-size: clamp(2.7rem, 3vw, 3.5rem); }
+      .hero-copy .hero-body { max-width: 700px; }
+      .hero-actions { top: 73%; }
+    }
+    @media (max-width: 520px) {
+      .hero { min-height: 820px; }
+      .hero-copy { top: 18%; width: min(390px, calc(100% - 24px)); }
+      .hero-copy h1 .hero-kicker { font-size: clamp(1.75rem, 8.5vw, 2.5rem); }
+      .hero-copy h1 strong { font-size: clamp(1.3rem, 6.4vw, 1.9rem); }
+      .hero-copy .hero-eyebrow { font-size: clamp(.67rem, 3.3vw, .86rem); }
+      .hero-copy .hero-subheading { margin-top: .38rem; font-size: clamp(.85rem, 4.3vw, 1.12rem); }
+      .hero-copy .hero-body,
+      .hero-copy .hero-audience,
+      .hero-copy .hero-offerings { max-width: 330px; font-size: clamp(.72rem, 3.3vw, .88rem); line-height: 1.2; }
+      .hero-copy .hero-audience { font-size: clamp(.54rem, 2.6vw, .67rem); }
+      .hero-copy .hero-offerings { font-size: clamp(.53rem, 2.5vw, .65rem); }
+      .hero-copy .hero-ready { margin-top: .38rem; font-size: clamp(.7rem, 3.2vw, .86rem); }
+      .hero-actions { top: 75%; gap: 10px; width: min(290px, calc(100% - 36px)); }
+      .hero-button { min-height: 52px; font-size: 1.02rem; }
+    }
+    .hero-copy h1.hero-eyebrow {
+      max-width: 900px;
+      margin: 0 auto;
+      color: #a7193f;
+      font: 400 clamp(1.885rem, 3.64vw, 3.51rem)/.98 "Fredoka One", "Baloo 2", sans-serif;
+      letter-spacing: -.035em;
+      text-shadow: 0 3px #fff, 0 5px rgba(115, 28, 48, .16);
+    }
+    .hero-copy .hero-subheadline {
+      margin: .55rem auto 0;
+      color: #192f70;
+      font: 400 clamp(1.35rem, 2.6vw, 2.55rem)/1 "Fredoka One", "Baloo 2", sans-serif;
+      letter-spacing: -.025em;
+      text-shadow: 0 2px #fff;
+    }
+    .hero-copy .hero-subheadline span { display: block; }
+    .hero-copy .hero-tagline {
+      display: table;
+      margin: .48rem auto 0;
+      padding: .25em .7em;
+      border: 2px solid #15245c;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .92);
+      box-shadow: 0 2px 0 rgba(21, 36, 92, .22);
+      color: #15245c;
+      font: 400 clamp(1.15rem, 2.35vw, 1.85rem)/1.15 "Fredoka One", "Baloo 2", sans-serif;
+      text-shadow: none;
+    }
+    @media (max-width: 520px) {
+      .shop-intro { padding: 0 4px; }
+      .shop-ribbon { margin-top: 0; padding: 8px 13px; }
+      .shop-intro-main { grid-template-columns: 1fr; gap: 20px; }
+      .shop-intro h2 { font-size: clamp(1.8rem, 9vw, 2.4rem); }
+      .shop-lead { font-size: 1.06rem; line-height: 1.58; }
+      .shop-audience-list li { font-size: .8rem; }
+      .shop-resource-bar p { font-size: 1rem; line-height: 1.5; }
+      .shop-intro .client-statement { max-width: 96%; font-size: clamp(1.85rem, 8.8vw, 2.5rem); }
+      .shop-intro .client-copy, .shop-intro .client-audience { font-size: 1.03rem; line-height: 1.58; }
+      .shop-intro .client-ready { font-size: clamp(1.3rem, 6.5vw, 1.7rem); }
+      .shop-resource-bar { grid-template-columns: 1fr; gap: 10px; }
+      .shop-cta-button { width: 100%; }
+      .hero-copy h1.hero-eyebrow { font-size: clamp(1.69rem, 8.06vw, 2.34rem); }
+      .hero-copy .hero-subheadline { font-size: clamp(1.25rem, 6vw, 1.7rem); }
+      .hero-copy .hero-tagline { font-size: clamp(1.15rem, 5.2vw, 1.45rem); }
+      .hero-copy .hero-body {
+        max-width: 310px;
+        font-size: clamp(1.25rem, 5.6vw, 1.55rem);
+        line-height: 1.28;
+        text-shadow: 0 1px 0 #fff, 0 0 5px rgba(255,255,255,.82);
+      }
+    }
+    /* Keep the hero copy as one readable message over the character artwork. */
+    .hero-message-box {
+      max-width: min(760px, 92vw);
+      margin: .55rem auto 0;
+      padding: clamp(10px, 1.6vw, 16px) clamp(16px, 3vw, 30px);
+      border: 2px solid rgba(25, 47, 112, .74);
+      border-radius: 22px;
+      background: rgba(255, 253, 244, .88);
+      box-shadow: 0 4px 13px rgba(20, 37, 85, .22);
+    }
+    .hero-copy .hero-message-box .hero-tagline {
+      display: block;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      color: #192f70;
+      text-shadow: none;
+    }
+    .hero-copy .hero-message-box .hero-body {
+      max-width: 680px;
+      margin: .45rem auto 0;
+      color: #263128;
+      font: 600 clamp(.9rem, 1.55vw, 1.16rem)/1.35 "Trebuchet MS", Arial, sans-serif;
+      text-shadow: none;
+    }
+    @media (min-width: 521px) {
+      .hero-actions { top: 68%; }
+    }
+    @media (min-width: 761px) {
+      .wood-nav { width: min(940px, calc(100% - 48px)); min-height: 64px; gap: clamp(22px, 2.8vw, 42px); padding-inline: 34px; }
+      .wood-nav a { font-size: clamp(.88rem, 1.45vw, 1.08rem); }
+    }
+    @media (max-width: 520px) {
+      .hero-message-box { max-width: calc(100vw - 28px); padding: 9px 13px; border-radius: 16px; }
+      .hero-copy .hero-message-box .hero-tagline { font-size: clamp(1.02rem, 5vw, 1.3rem); line-height: 1.1; }
+      .hero-copy .hero-message-box .hero-body { margin-top: .34rem; font-size: clamp(.78rem, 3.65vw, .95rem); line-height: 1.3; }
+    }
+    @keyframes cheero-button-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+    @keyframes cheero-board-sway { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(.35deg); } }
+    .hero-button, .copy-cta, .shop-button { transition: transform .2s ease, filter .2s ease, box-shadow .2s ease; }
+    .hero-button, .copy-cta, .shop-button { animation: cheero-button-bob 2.8s ease-in-out infinite; }
+    .hero-button:nth-child(2) { animation-delay: .3s; }
+    .shop-button:nth-child(even), .copy-cta { animation-delay: .25s; }
+    .shop-heading, .custom-callout { transform-origin: top center; animation: cheero-board-sway 5.5s ease-in-out infinite; }
+    .hero-button:hover, .hero-button:focus-visible, .copy-cta:hover, .copy-cta:focus-visible, .shop-button:hover, .shop-button:focus-visible { transform: translateY(-3px); filter: brightness(1.08); }
+    @media (max-width: 1100px) {
+      .hero-actions { top: 66% !important; display: grid; grid-template-columns: 1fr; gap: 12px; width: min(300px, calc(100% - 28px)); }
+      .hero-button { min-height: 50px; padding: 8px 6px; font-size: clamp(.7rem, 2.5vw, .92rem); }
+      .copy-list { display: none; }
+    }
+    @media (max-width: 760px) {
+      .wood-nav { left: 0; width: 100%; justify-content: space-evenly; gap: 0; padding-inline: 4px; border-radius: 0; transform: none; }
+      .wood-nav a { flex: 1 1 0; font-size: clamp(.66rem, 2.2vw, .84rem); text-align: center; white-space: nowrap; }
+    }
+    @media (prefers-reduced-motion: reduce) { .hero-button, .copy-cta, .shop-button, .shop-heading, .custom-callout { animation: none; } }
+    .shop-modal[hidden] { display: none; }
+    .shop-modal { position: fixed; inset: 0; z-index: 30; display: grid; place-items: center; padding: 18px; background: rgba(20, 37, 45, .66); }
+    .shop-modal-panel { position: relative; width: min(900px, 100%); max-height: min(760px, calc(100vh - 36px)); overflow: auto; padding: clamp(20px, 4vw, 38px); border: 3px solid #4b2713; border-radius: 24px; background: linear-gradient(rgba(255,250,235,.94), rgba(255,250,235,.94)), url("https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a98422acf28d633650537cb.png") center/cover; box-shadow: 0 18px 55px rgba(0,0,0,.35); }
+    .shop-modal-close { position: absolute; top: 12px; right: 12px; width: 38px; height: 38px; border: 2px solid #4b2713; border-radius: 50%; background: #fff9df; color: #4b2713; font: 800 1.3rem/1 Arial, sans-serif; cursor: pointer; }
+    .shop-modal-cover { min-height: 115px; display: grid; place-items: center; margin-bottom: 16px; padding: 18px; border: 3px solid #4b2713; border-radius: 16px; background: repeating-linear-gradient(171deg, transparent 0 9px, rgba(59,28,10,.23) 10px 11px, transparent 12px 18px), linear-gradient(180deg, #ad703a, #663315); color: #fff9df; font: 400 clamp(1.6rem, 4vw, 3rem)/1 "Fredoka One", "Baloo 2", sans-serif; text-align: center; text-shadow: 0 2px #42200e; }
+    .shop-modal-product { margin-bottom: 18px; }
+    .shop-modal-cover-image, .shop-modal-item-image { display: grid; place-items: center; border: 2px dashed #c89540; border-radius: 12px; background: linear-gradient(145deg, #fff5d6, #ecdfb7); color: #76512e; font: 800 .68rem/1.2 "Baloo 2", Arial, sans-serif; text-align: center; text-transform: uppercase; }
+    .shop-modal-cover-image { min-height: 130px; }
+    .shop-modal-copy { max-width: 690px; margin: 0 auto 20px; color: #263128; font: 600 1rem/1.55 "Trebuchet MS", Arial, sans-serif; text-align: center; }
+    .shop-modal-items { display: flex; gap: 14px; overflow-x: auto; padding: 2px 2px 14px; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: thin; }
+    .shop-modal-selected { display: grid; grid-template-columns: 190px 1fr; gap: 22px; align-items: center; margin-bottom: 20px; padding: 16px; border-top: 2px solid #e1bc76; border-bottom: 2px solid #e1bc76; }
+    .shop-modal-selected-image { display: grid; min-height: 220px; place-items: center; border: 2px dashed #c89540; border-radius: 12px; background: linear-gradient(145deg, #fff5d6, #ecdfb7); color: #76512e; font: 800 .75rem/1.3 "Baloo 2", Arial, sans-serif; text-align: center; text-transform: uppercase; }
+    .shop-modal-selected h3 { margin: 0; color: #192f70; font: 400 clamp(1.4rem, 3vw, 2rem)/1 "Fredoka One", "Baloo 2", sans-serif; }
+    .shop-modal-age { display: block; margin: 8px 0 0; color: #2c6430; font: 800 .92rem/1.25 "Baloo 2", Arial, sans-serif; }
+    .shop-modal-selected p { margin: 12px 0 18px; color: #38413b; font: 600 1rem/1.5 "Trebuchet MS", Arial, sans-serif; }
+    .shop-modal-price { display: block; margin: 0 0 16px; color: #a7193f; font: 400 1.5rem/1 "Fredoka One", "Baloo 2", sans-serif; }
+    .shop-modal-checkout { display: inline-grid; place-items: center; min-height: 46px; padding: 10px 22px; border: 2px solid #4b2713; border-radius: 10px; background: linear-gradient(180deg,#f3c76c,#d99d3e); box-shadow: 0 4px #5a2d12; color: #4b2713; font: 800 .9rem/1 "Baloo 2", Arial, sans-serif; text-decoration: none; }
+    .shop-modal-item { display: flex; flex: 0 0 min(270px, 78vw); flex-direction: column; min-height: 315px; padding: 12px; border: 2px solid #dfb968; border-radius: 14px; background: #fffdf5; scroll-snap-align: start; text-align: center; }
+    .shop-modal-item-image { aspect-ratio: 1 / 1; min-height: 0; margin-bottom: 10px; font-size: .57rem; }
+    .shop-modal-item-image.has-image, .shop-modal-selected-image.has-image { position: relative; padding: 0; border-style: solid; overflow: hidden; background: none; }
+    .shop-modal-item-image.has-image img, .shop-modal-selected-image.has-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .shop-modal-item strong { color: #192f70; font: 400 1.1rem/1.1 "Fredoka One", "Baloo 2", sans-serif; }
+    .scroll-reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+    .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .footer-value-icon { border-style: solid !important; border-color: #e5b759 !important; background: #fff7d7 !important; color: #6a431d !important; font-size: clamp(1.45rem, 2.6vw, 2.1rem) !important; text-transform: none !important; }
+    .shop-modal-item span { margin: 8px 0 14px; color: #3a4039; font: 600 .85rem/1.35 "Trebuchet MS", Arial, sans-serif; }
+    .shop-modal-buy { margin-top: auto; padding: 10px 7px; border: 2px solid #142555; border-radius: 9px; background: #192f70; box-shadow: 0 3px #112352; color: #fff9df; font: 800 .8rem/1 "Baloo 2", Arial, sans-serif; cursor: pointer; }
+    @media (max-width: 560px) { .shop-modal-product, .shop-modal-selected { grid-template-columns: 1fr; } .shop-modal-items { gap: 10px; } .shop-modal-selected-image { min-height: 130px; } .shop-modal-cover-image { min-height: 110px; } .shop-modal-item { flex-basis: min(245px, 78vw); min-height: 0; padding: 7px; border-radius: 10px; } .shop-modal-item-image { margin-bottom: 6px; font-size: .42rem; } .shop-modal-item strong { font-size: .7rem; } .shop-modal-item span { margin: 5px 0 8px; font-size: .56rem; line-height: 1.2; } .shop-modal-buy { padding: 8px 2px; font-size: .58rem; } }
+    @media (max-width: 760px) {
+      .footer-value { font-size: .88rem !important; line-height: 1.2 !important; }
+      .footer-value-icon { width: auto !important; height: auto !important; min-height: 0 !important; margin: 0 0 6px !important; border: 0 !important; background: transparent !important; box-shadow: none !important; font-size: 1.25rem !important; }
+    }
   </style>
 </head>
 <body>
@@ -917,15 +1255,18 @@
         <a href="#section-4">About Us</a>
         <a href="#section-4">Customization</a>
         <a href="#section-4">Contact</a>
-        <a class="cart-link" href="#section-3">🛒 Cart (0)</a>
       </nav>
       <div class="hero-copy">
-        <h1><span class="hero-kicker">Christ-Centered</span><span class="hero-main">Learning</span><strong>for Every Child</strong></h1>
-        <p><span>A complete curriculum solution for childcare centers,</span><span>home-based daycares, teachers, and parents.</span><span>Building strong foundations in faith, learning,</span><span>and character from infancy to age 5.</span></p>
+        <h1 class="hero-eyebrow">Childcare CHEERO Christian Curriculum</h1>
+        <h2 class="hero-subheadline"><span>Christ-Centered Learning</span><span>for Every Child</span></h2>
+        <div class="hero-message-box">
+          <p class="hero-tagline">Faith. Learning. Character. All in One Place.</p>
+          <p class="hero-body">Give your little learners more than activities. Give them a strong foundation.</p>
+        </div>
       </div>
       <div class="hero-actions">
-        <a class="hero-button" href="#section-3">Shop Now</a>
-        <a class="hero-button" href="#section-3">Explore Bundles</a>
+        <a class="hero-button" href="#section-3">Shop Childcare CHEERO</a>
+        <a class="hero-button" href="#section-4">Learn More About Curriculum</a>
       </div>
       <div class="benefit-strip hero-benefits">
         <div class="benefit"><span class="benefit-icon">♥</span><span class="benefit-copy">Christ-Centered<br> Learning</span></div>
@@ -935,51 +1276,118 @@
         <div class="benefit"><span class="benefit-icon">▰</span><span class="benefit-copy">Easy to Use &amp;<br> Ready to Go</span></div>
       </div>
     </section>
-    <section id="section-2"></section>
+    <section class="copy-section" aria-label="Childcare CHEERO introduction">
+      <div class="copy-wrap shop-intro">
+        <p class="client-statement">Give your little learners more than activities. Give them a strong foundation.</p>
+        <p class="client-copy"><strong>Childcare CHEERO Christian Curriculum</strong> provides engaging, age-appropriate learning resources created for children from <strong>infancy through age 5</strong>, combining essential early learning concepts with a Christ-centered approach.</p>
+        <p class="client-created">Created for:</p>
+        <p class="client-audience"><strong>Childcare Centers • Home-Based Daycares • Teachers • Educators • Parents • Homeschool &amp; At-Home Learning • New &amp; Established Childcare Programs</strong></p>
+        <p class="client-copy">From <strong>Homework Booklets and Teacher Lesson Plan Booklets</strong> to learning posters, coloring books, and Childcare CHEERO essentials, we make it easier to create a learning experience children can recognize, enjoy, and grow with.</p>
+        <h3 class="client-ready">Ready to bring CHEERO into your learning space?</h3>
+      </div>
+    </section>
+    <section id="purpose-section" class="copy-section purpose-block">
+      <div class="copy-wrap">
+        <p class="section-kicker">Everything You Need to Teach With Purpose</p>
+        <h2 class="copy-title">Stop spending hours creating <span>everything from scratch.</span></h2>
+        <p class="copy-lead">Running a childcare program, managing a classroom, or teaching your child at home already requires time, preparation, and dedication. Your curriculum shouldn't make it harder.</p>
+        <div class="purpose-grid">
+          <article class="purpose-item"><strong>Ready to use</strong><p>Childcare CHEERO gives you coordinated resources that make learning organized, engaging, consistent, age-appropriate, and Christ-centered.</p></article>
+          <article class="purpose-item"><strong>Less time searching</strong><p>Stop piecing together worksheets, posters, activities, and lesson-planning resources from multiple places.</p></article>
+          <article class="purpose-item"><strong>More time teaching</strong><p>Build one recognizable learning experience—and spend more time helping little learners grow.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="copy-section" aria-labelledby="audiences-heading">
+      <div class="copy-wrap">
+        <p class="section-kicker">Built for Everyone Who Helps Little Learners Grow</p>
+        <h2 id="audiences-heading" class="copy-title">A learning experience made <span>for your world.</span></h2>
+        <div class="audience-paths">
+          <article class="path-card"><h3>Childcare Centers</h3><p>Bring more consistency and structure to your program with coordinated resources across every classroom.</p><a class="copy-cta" href="#shop-products">Shop for Your Center</a></article>
+          <article class="path-card"><h3>Home-Based Daycares</h3><p>Your program may be small. Your curriculum can still be powerful, organized, and engaging.</p><a class="copy-cta" href="#shop-products">Explore CHEERO</a></article>
+          <article class="path-card"><h3>Teachers &amp; Educators</h3><p>Focus more on teaching—not creating everything yourself. Build lesson planning and parent engagement resources that work together.</p><a class="copy-cta" href="#shop-products">Shop Educator Resources</a></article>
+          <article class="path-card"><h3>Parents &amp; At-Home Learning</h3><p>You are your child's first teacher. Create meaningful learning moments without a classroom or teaching degree.</p><a class="copy-cta" href="#shop-products">Shop for My Child</a></article>
+          <article class="path-card"><h3>New Childcare Programs</h3><p>Start with curriculum resources that help give your program structure from day one.</p><a class="copy-cta" href="#shop-products">Start with CHEERO</a></article>
+          <article class="path-card"><h3>Established Programs</h3><p>Refresh your learning experience with new homework resources, posters, and curriculum bundles.</p><a class="copy-cta" href="#shop-products">Explore Our Products</a></article>
+        </div>
+      </div>
+    </section>
+    <section class="copy-section" aria-labelledby="why-copy-heading">
+      <div class="copy-wrap split-feature">
+        <div><p class="section-kicker" style="text-align:left">Why Childcare CHEERO?</p><h2 id="why-copy-heading" class="copy-title" style="text-align:left">Early learning should build <span>more than academic skills.</span></h2><p class="copy-lead" style="text-align:left">Children are learning how to communicate, discovering who they are, learning kindness, developing confidence, building relationships, and beginning to understand the world around them. That's why Childcare CHEERO combines early childhood learning with faith and character development.</p></div>
+        <div class="custom-callout"><p class="section-kicker">Christ-Centered Learning</p><h2 class="copy-title">Faith. Purpose. Kindness. Character.</h2><p class="copy-lead">Prepare children academically while also planting seeds that can grow with them.</p></div>
+      </div>
+    </section>
+    <section class="copy-section" aria-labelledby="grow-heading">
+      <div class="copy-wrap split-feature"><div><p class="section-kicker" style="text-align:left">Learning That Grows With Them</p><h2 id="grow-heading" class="copy-title" style="text-align:left">From infancy <span>through age&nbsp;5.</span></h2><p class="copy-lead" style="text-align:left">Every stage of early childhood is different. Our materials are age-appropriate, so children experience learning concepts in ways that make sense for their developmental stage.</p><a class="copy-cta" href="#shop-products">Find the Right Level</a></div><div><ul class="copy-list"><li><span class="topic-icon">A</span>Alphabet</li><li><span class="topic-icon">1</span>Numbers</li><li><span class="topic-icon">△</span>Shapes</li><li><span class="topic-icon">●</span>Colors</li><li><span class="topic-icon">ASL</span>American Sign Language</li><li><span class="topic-icon">↔</span>Early Communication</li><li><span class="topic-icon">✦</span>Fine Motor Development</li><li><span class="topic-icon">+</span>Early Academic Skills</li><li><span class="topic-icon">♥</span>Faith</li><li><span class="topic-icon">☺</span>Character</li><li><span class="topic-icon">★</span>Creativity</li><li><span class="topic-icon">…</span>And More</li></ul></div></div>
+    </section>
+    <section class="copy-section"><div class="copy-wrap"><div class="custom-callout"><p class="section-kicker">Make It Your Own</p><h2 class="copy-title">Your Center. Your Logo. <span>Your Learning Experience.</span></h2><p class="copy-lead">Explore Customized Learning Materials for childcare centers, home-based daycare businesses, educational programs, and organizations. Create a more professional, cohesive experience while keeping your own childcare brand front and center.</p><a class="copy-cta" href="#section-4">Explore Custom Packages</a></div></div></section>
+    <section class="copy-section purpose-block-duplicate" aria-labelledby="purpose-heading">
+      <div class="copy-wrap">
+        <p class="section-kicker">Everything You Need to Teach With Purpose</p>
+        <h2 id="purpose-heading" class="copy-title">Stop spending hours creating <span>everything from scratch.</span></h2>
+        <p class="copy-lead">Running a childcare program, managing a classroom, or teaching your child at home already requires time, preparation, and dedication. Your curriculum shouldn't make it harder.</p>
+        <div class="purpose-grid">
+          <article class="purpose-item"><strong>Ready to use</strong><p>Childcare CHEERO gives you coordinated resources that make learning organized, engaging, consistent, age-appropriate, and Christ-centered.</p></article>
+          <article class="purpose-item"><strong>Less time searching</strong><p>Stop piecing together worksheets, posters, activities, and lesson-planning resources from multiple places.</p></article>
+          <article class="purpose-item"><strong>More time teaching</strong><p>Build one recognizable learning experience—and spend more time helping little learners grow.</p></article>
+        </div>
+        <a class="copy-cta" href="#shop-products">Find Your Childcare CHEERO Resources</a>
+      </div>
+    </section>
     <section id="section-3">
       <div class="shop-section-inner">
+        <div class="shop-intro shop-intro-duplicate">
+          <p class="client-statement">Give your little learners more than activities. Give them a strong foundation.</p>
+          <p class="client-copy"><strong>Childcare CHEERO Christian Curriculum</strong> provides engaging, age-appropriate learning resources created for children from <strong>infancy through age 5</strong>, combining essential early learning concepts with a Christ-centered approach.</p>
+          <p class="client-created">Created for:</p>
+          <p class="client-audience"><strong>Childcare Centers • Home-Based Daycares • Teachers • Educators • Parents • Homeschool &amp; At-Home Learning • New &amp; Established Childcare Programs</strong></p>
+          <p class="client-copy">From <strong>Homework Booklets and Teacher Lesson Plan Booklets</strong> to learning posters, coloring books, and Childcare CHEERO essentials, we make it easier to create a learning experience children can recognize, enjoy, and grow with.</p>
+          <h3 class="client-ready">Ready to bring CHEERO into your learning space?</h3>
+        </div>
         <h2 class="shop-heading">Shop Childcare CHEERO</h2>
-        <div class="product-grid">
-          <article class="product-card">
-            <div class="product-frame"><strong>IMAGE PLACEMENT</strong><small>Original: homework booklet set</small></div>
+        <p class="copy-lead" style="margin-bottom:28px">Learning Resources + CHEERO Essentials for Your Little Learners. Choose the products you need or explore our age-appropriate curriculum bundles.</p>
+        <div id="shop-products" class="product-grid">
+          <article class="product-card pc-homework">
+            <div class="product-frame has-image"><img src="https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99fb7ea612b72e8fa1b6b4.png" alt="Homework booklet set cover"></div>
             <h3>Homework<br>Booklets</h3>
-            <p>Reinforce learning at home with fun and meaningful activities.</p>
-            <a class="shop-button" href="#section-4">Shop Now</a>
-            <span class="product-spec">Create at 1200 × 900 px · 4:3</span>
+            <p>Bring learning home with age-appropriate activities that reinforce early learning concepts.</p>
+            <a class="shop-button" href="#section-4">Shop Homework Booklets</a>
+            <span class="product-spec">Create at 1000 × 1250 px · 4:5</span>
           </article>
-          <article class="product-card">
-            <div class="product-frame"><strong>IMAGE PLACEMENT</strong><small>Original: teacher plan booklet set</small></div>
+          <article class="product-card pc-lessons">
+            <div class="product-frame has-image"><img src="https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99fb7e0e3d7a2f06e76b22.png" alt="Teacher lesson plan booklet set cover"></div>
             <h3>Teacher Lesson<br>Plan Booklets</h3>
-            <p>Complete lesson plans to help you teach with confidence and purpose.</p>
-            <a class="shop-button" href="#section-4">Shop Now</a>
-            <span class="product-spec">Create at 1200 × 900 px · 4:3</span>
+            <p>Plan easier and teach with purpose using organized, consistent lesson resources.</p>
+            <a class="shop-button" href="#section-4">Shop Lesson Plans</a>
+            <span class="product-spec">Create at 1000 × 1250 px · 4:5</span>
           </article>
-          <article class="product-card">
+          <article class="product-card pc-posters">
             <div class="product-frame"><strong>IMAGE PLACEMENT</strong><small>Original: learning poster set</small></div>
             <h3>Learning<br>Posters</h3>
-            <p>Bright, durable posters that make every wall a learning opportunity.</p>
-            <a class="shop-button" href="#section-4">Shop Now</a>
-            <span class="product-spec">Create at 1200 × 900 px · 4:3</span>
+            <p>Turn your walls into learning opportunities with colorful CHEERO characters.</p>
+            <span class="shop-button is-coming-soon">Locked · Coming Soon</span>
+            <span class="product-spec">Create at 1000 × 1250 px · 4:5</span>
           </article>
-          <article class="product-card">
+          <article class="product-card pc-coloring">
             <div class="product-frame"><strong>IMAGE PLACEMENT</strong><small>Original: coloring book set</small></div>
             <h3>Coloring<br>Books</h3>
-            <p>Creative, fun, and educational coloring books kids will love.</p>
-            <a class="shop-button" href="#section-4">Shop Now</a>
+            <p>Color, create, and learn with familiar characters and child-friendly pages.</p>
+            <span class="shop-button is-coming-soon">Locked · Coming Soon</span>
             <span class="product-spec">Create at 1000 × 1250 px · 4:5</span>
           </article>
-          <article class="product-card">
+          <article class="product-card pc-shirts">
             <div class="product-frame"><strong>IMAGE PLACEMENT</strong><small>Original: red &amp; navy shirt pair</small></div>
             <h3>Childcare<br>CHEERO Shirts</h3>
-            <p>Wear the CHEERO spirit! Perfect for school days, events, and gifts.</p>
-            <a class="shop-button" href="#section-4">Shop Now</a>
+            <p>Wear the CHEERO spirit for students, events, special activities, and gifts.</p>
+            <span class="shop-button is-coming-soon">Locked · Coming Soon</span>
             <span class="product-spec">Create at 1000 × 1250 px · 4:5</span>
           </article>
-          <article class="product-card">
+          <article class="product-card pc-bags">
             <div class="product-frame"><strong>IMAGE PLACEMENT</strong><small>Original: drawstring bag pair</small></div>
             <h3>Drawstring<br>Bags</h3>
-            <p>Carry learning materials everywhere with CHEERO style!</p>
-            <a class="shop-button" href="#section-4">Shop Now</a>
+            <p>Take CHEERO wherever you go—perfect for learning materials and essentials.</p>
+            <span class="shop-button is-coming-soon">Locked · Coming Soon</span>
             <span class="product-spec">Create at 1000 × 1250 px · 4:5</span>
           </article>
         </div>
@@ -1021,19 +1429,19 @@
             <p>Connecting home and school for a stronger learning journey.</p>
           </div>
           <div class="footer-value">
-            <span class="footer-value-icon" aria-hidden="true">Image<br>256 × 256</span>
+            <span class="footer-value-icon" aria-hidden="true">💬</span>
             <span>Easy<br>Communication</span>
           </div>
           <div class="footer-value">
-            <span class="footer-value-icon" aria-hidden="true">Image<br>256 × 256</span>
+            <span class="footer-value-icon" aria-hidden="true">🔔</span>
             <span>Updates &amp;<br>Reminders</span>
           </div>
           <div class="footer-value">
-            <span class="footer-value-icon" aria-hidden="true">Image<br>256 × 256</span>
+            <span class="footer-value-icon" aria-hidden="true">📚</span>
             <span>Track<br>Learning</span>
           </div>
           <div class="footer-value">
-            <span class="footer-value-icon" aria-hidden="true">Image<br>256 × 256</span>
+            <span class="footer-value-icon" aria-hidden="true">🤝</span>
             <span>Stronger<br>Connection</span>
           </div>
           <a class="footer-updates" href="#section-4">
@@ -1062,5 +1470,169 @@
       </footer>
     </section>
   </main>
+  <div class="shop-modal" id="shop-modal" hidden role="dialog" aria-modal="true" aria-labelledby="shop-modal-title">
+    <div class="shop-modal-panel">
+      <button class="shop-modal-close" type="button" aria-label="Close shop">×</button>
+      <div class="shop-modal-cover" id="shop-modal-title"></div>
+      <div class="shop-modal-product"><p class="shop-modal-copy" id="shop-modal-copy"></p></div>
+      <div class="shop-modal-items" id="shop-modal-items"></div>
+    </div>
+  </div>
+  <div class="shop-modal" id="product-detail-modal" hidden role="dialog" aria-modal="true" aria-labelledby="shop-modal-selected-title">
+    <div class="shop-modal-panel">
+      <button class="shop-modal-close" type="button" aria-label="Close product details">×</button>
+      <div class="shop-modal-selected"><div class="shop-modal-selected-image" id="shop-modal-selected-image">Select a Product</div><div><h3 id="shop-modal-selected-title">Choose a Product</h3><p id="shop-modal-selected-copy">Select an item below to view its cover and description.</p><strong class="shop-modal-price" id="shop-modal-price">$29.99</strong><a class="shop-modal-checkout" id="shop-modal-checkout" href="#">Checkout</a></div></div>
+    </div>
+  </div>
+  <script>
+    document.getElementById('purpose-section').after(document.getElementById('section-3'));
+    const shopModal = document.getElementById('shop-modal');
+    const modalTitle = document.getElementById('shop-modal-title');
+    const modalCopy = document.getElementById('shop-modal-copy');
+    const modalItems = document.getElementById('shop-modal-items');
+    const detailModal = document.getElementById('product-detail-modal');
+    document.getElementById('shop-products').addEventListener('click', (event) => {
+      const button = event.target.closest('.product-card .shop-button');
+      if (!button) return;
+      {
+        event.preventDefault();
+        const card = button.closest('.product-card');
+        const title = card.querySelector('h3').innerText.replace(/\n/g, ' ');
+        const titleUp = title.toUpperCase();
+        const description = card.querySelector('p').innerText;
+        modalTitle.textContent = title;
+        modalCopy.textContent = description;
+        const homework = [
+          ['Starter Homework Booklet', 'The Starter Homework Booklet is created for infants ages 6 weeks to 11 months. It gives families simple, age-appropriate activities that connect learning at home with the Childcare Cheero Christian Curriculum. Each activity supports early development while introducing faith, family connection, and meaningful learning experiences designed for our youngest learners.', 'Infants — Ages 6 Weeks to 11 Months', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4f1d9a153ac43f93d57.png'],
+          ['Freshman Homework Booklet', 'The Freshman Homework Booklet is designed for Toddler 1’s, ages 12 to 23 months. It includes simple activities families can complete at home to reinforce skills and concepts introduced during the school day. Activities are appropriate for this stage of development and support early learning, growing independence, and faith-based connections.', 'Toddler 1’s — Ages 12 to 23 Months', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4f0a612b72e8fa132b9.png'],
+          ['Sophomore Homework Booklet', 'The Sophomore Homework Booklet is designed for Toddler 2’s, ages 24 to 35 months. It provides engaging at-home activities that help children practice what they are learning in the classroom. Families can use the booklet to support language, thinking, creativity, early skills, and Christian learning through activities made for this age group.', 'Toddler 2’s — Ages 24 to 35 Months', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4f0fac7854efe53531c.png'],
+          ['Junior Homework Booklet', 'The Junior Homework Booklet is created for Preschool 3’s, age 3. It extends classroom learning into the home with activities that encourage children to practice important preschool skills with their families. The booklet supports early academics, communication, creativity, independence, and faith-based learning while helping families stay connected to what their child is learning.', 'Preschool 3’s — Age 3', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4f0fac7854efe535312.png'],
+          ['Senior Homework Booklet', 'The Senior Homework Booklet is designed for Pre-K 4’s, age 4. It provides purposeful at-home activities that reinforce classroom concepts and help children continue building the skills they need as they prepare for kindergarten. Activities support early academics, communication, problem-solving, independence, and Christian learning while giving families an easy way to participate in their child’s education.', 'Pre-K 4’s — Age 4', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4edfac7854efe535293.png']
+        ];
+        const lessons = [
+          ['Starter Teacher Lesson Plan Booklet — Infants, Ages 6 Weeks to 11 Months', 'Lesson plans and guidance for teachers working with infants, including developmentally appropriate experiences, weekly instruction, and faith-based learning.', null, 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4edf8c3a55cc272f7aa.png'],
+          ['Freshman Teacher Lesson Plan Booklet — Toddler 1’s, Ages 12 to 23 Months', 'Organized lesson plans for age-appropriate learning experiences, classroom activities, and Christian curriculum connections.', null, 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4eda1f3f48f4bc369ad.png'],
+          ['Sophomore Teacher Lesson Plan Booklet — Toddler 2’s, Ages 24 to 35 Months', 'Structured lesson plans and activities for learning concepts, hands-on experiences, and faith-based lessons for this important stage.', null, 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4eda1f3f48f4bc369b6.png'],
+          ['Junior Teacher Lesson Plan Booklet — Preschool 3’s, Age 3', 'Organized lesson plans supporting early academics, language, creativity, social development, classroom exploration, and Christian learning.', null, 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4edf20cf78ef1192685.png'],
+          ['Senior Teacher Lesson Plan Booklet — Pre-K 4’s, Age 4', 'Organized lesson plans and classroom activities supporting kindergarten readiness, early academics, independence, communication, character, and faith.', null, 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4ed7e31763f5dd9d39d.png']
+        ];
+        const products = titleUp.includes('HOMEWORK') ? homework : titleUp.includes('TEACHER') ? lessons : ['Starter', 'Freshman', 'Sophomore', 'Junior', 'Senior'].map((level) => [`${level} ${title}`, description]);
+        if (titleUp.includes('HOMEWORK') || titleUp.includes('TEACHER')) modalCopy.textContent = products[0][1];
+        const selectedImage = document.getElementById('shop-modal-selected-image');
+        const selectedTitle = document.getElementById('shop-modal-selected-title');
+        const selectedCopy = document.getElementById('shop-modal-selected-copy');
+        const selectProduct = (index) => { const item = products[index]; selectedImage.innerHTML = item[3] ? `<img src="${item[3]}" alt="${item[0]} cover">` : `${item[0]}<br>Cover Image`; selectedImage.classList.toggle('has-image', !!item[3]); selectedTitle.textContent = item[0]; selectedCopy.textContent = item[1]; document.getElementById('shop-modal-price').textContent = '$29.99'; detailModal.hidden = false; };
+        modalItems.innerHTML = products.map((item, index) => `<article class="shop-modal-item"><div class="shop-modal-item-image${item[3] ? ' has-image' : ''}">${item[3] ? `<img src="${item[3]}" alt="${item[0]} cover">` : `${item[0]}<br>Product Image`}</div><strong>${item[0]}</strong>${item[2] ? `<span>${item[2]}</span>` : ''}<button class="shop-modal-buy" type="button" data-index="${index}">View Product</button></article>`).join('');
+        modalItems.querySelectorAll('.shop-modal-buy').forEach((itemButton) => itemButton.addEventListener('click', () => selectProduct(Number(itemButton.dataset.index))));
+        shopModal.hidden = false;
+      }
+    });
+    document.querySelector('#shop-modal .shop-modal-close').addEventListener('click', () => shopModal.hidden = true);
+    document.querySelector('#product-detail-modal .shop-modal-close').addEventListener('click', () => detailModal.hidden = true);
+    shopModal.addEventListener('click', (event) => { if (event.target === shopModal) shopModal.hidden = true; });
+    const revealTargets = document.querySelectorAll('.section-kicker, .copy-title, .shop-heading, .client-statement, .client-copy, .client-created, .client-audience, .client-ready');
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const revealObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); revealObserver.unobserve(entry.target); }
+      }), { threshold: .2 });
+      revealTargets.forEach((target) => { target.classList.add('scroll-reveal'); revealObserver.observe(target); });
+    }
+    /* Infinite swipe carousel: on touch screens the product cards loop in
+       both directions. Clones are placed around the six originals and the
+       scroll position is re-mapped to the middle set once it settles. */
+    (function () {
+      const track = document.getElementById('shop-products');
+      if (!track) return;
+      const cardCount = track.children.length;
+      const mobileQuery = window.matchMedia('(max-width: 840px)');
+      let clones = [];
+      let scrollTimer = null;
+      let jumpLock = false;
+      let enabled = false;
+
+      const measureStep = () => {
+        const card = track.querySelector('.product-card');
+        const gap = parseFloat(getComputedStyle(track).gap) || 0;
+        return card ? card.getBoundingClientRect().width + gap : 0;
+      };
+      const padLeft = () => parseFloat(getComputedStyle(track).paddingLeft) || 0;
+
+      const buildClones = () => {
+        if (clones.length) return;
+        const originals = Array.from(track.children);
+        const head = originals.map((card) => card.cloneNode(true));
+        const tail = originals.map((card) => card.cloneNode(true));
+        head.concat(tail).forEach((card) => card.classList.add('is-clone'));
+        head.forEach((card) => track.appendChild(card));
+        tail.forEach((card) => track.prepend(card));
+        clones = head.concat(tail);
+      };
+      const removeClones = () => {
+        clones.forEach((card) => card.remove());
+        clones = [];
+      };
+
+      const settle = () => {
+        if (jumpLock) return;
+        const step = measureStep();
+        if (!step) return;
+        const index = Math.round((track.scrollLeft - padLeft()) / step);
+        const total = track.children.length;
+        let target = index;
+        if (index < cardCount) target = index + cardCount;
+        else if (index >= total - cardCount) target = index - cardCount;
+        if (target === index) return;
+        jumpLock = true;
+        track.style.scrollSnapType = 'none';
+        track.style.scrollBehavior = 'auto';
+        track.scrollLeft = padLeft() + target * step;
+        requestAnimationFrame(() => {
+          track.style.scrollSnapType = '';
+          track.style.scrollBehavior = '';
+          jumpLock = false;
+        });
+      };
+      const onScroll = () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(settle, 130);
+      };
+
+      const positionAt = () => {
+        const step = measureStep();
+        track.style.scrollBehavior = 'auto';
+        track.scrollLeft = padLeft() + cardCount * step;
+        requestAnimationFrame(() => { track.style.scrollBehavior = ''; });
+        return step;
+      };
+
+      const enable = () => {
+        if (enabled) return;
+        enabled = true;
+        buildClones();
+        if (!positionAt()) {
+          window.addEventListener('load', () => { if (enabled) positionAt(); }, { once: true });
+        }
+        track.addEventListener('scrollend', settle, { passive: true });
+        track.addEventListener('scroll', onScroll, { passive: true });
+      };
+      const disable = () => {
+        if (!enabled) return;
+        enabled = false;
+        track.removeEventListener('scrollend', settle);
+        track.removeEventListener('scroll', onScroll);
+        clearTimeout(scrollTimer);
+        removeClones();
+        track.style.scrollSnapType = '';
+        track.style.scrollBehavior = '';
+        track.scrollLeft = 0;
+      };
+
+      if (mobileQuery.matches) enable();
+      mobileQuery.addEventListener('change', (event) => {
+        if (event.matches) enable();
+        else disable();
+      });
+    })();
+  </script>
 </body>
 </html>
