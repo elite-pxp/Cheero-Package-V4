@@ -1233,7 +1233,7 @@
     .scroll-reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
     .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
     .footer-value-icon { border-style: solid !important; border-color: #e5b759 !important; background: #fff7d7 !important; color: #6a431d !important; font-size: clamp(1.45rem, 2.6vw, 2.1rem) !important; text-transform: none !important; }
-    .shop-modal-item span { margin: 8px 0 14px; color: #3a4039; font: 600 .85rem/1.35 "Trebuchet MS", Arial, sans-serif; }
+    .shop-modal-item .shop-modal-age { margin: 6px 0 14px; color: #51614c; font: 600 .78rem/1.3 "Trebuchet MS", Arial, sans-serif; letter-spacing: .01em; }
     .shop-modal-buy { margin-top: auto; padding: 10px 7px; border: 2px solid #142555; border-radius: 9px; background: #192f70; box-shadow: 0 3px #112352; color: #fff9df; font: 800 .8rem/1 "Baloo 2", Arial, sans-serif; cursor: pointer; }
     @media (max-width: 560px) { .shop-modal-product, .shop-modal-selected { grid-template-columns: 1fr; } .shop-modal-items { gap: 10px; } .shop-modal-selected-image { min-height: 130px; } .shop-modal-cover-image { min-height: 110px; } .shop-modal-item { flex-basis: min(245px, 78vw); min-height: 0; padding: 7px; border-radius: 10px; } .shop-modal-item-image { margin-bottom: 6px; font-size: .42rem; } .shop-modal-item strong { font-size: .7rem; } .shop-modal-item span { margin: 5px 0 8px; font-size: .56rem; line-height: 1.2; } .shop-modal-buy { padding: 8px 2px; font-size: .58rem; } }
     @media (max-width: 760px) {
@@ -1353,7 +1353,7 @@
             <span class="product-spec">Create at 1000 × 1250 px · 4:5</span>
           </article>
           <article class="product-card pc-lessons">
-            <div class="product-frame has-image"><img src="https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99fb7e0e3d7a2f06e76b22.png" alt="Teacher lesson plan booklet set cover"></div>
+            <div class="product-frame has-image"><img src="https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a9aa683c78647f313a0d730.png" alt="Teacher lesson plan booklet set cover"></div>
             <h3>Teacher Lesson<br>Plan Booklets</h3>
             <p>Plan easier and teach with purpose using organized, consistent lesson resources.</p>
             <a class="shop-button" href="#section-4">Shop Lesson Plans</a>
@@ -1478,7 +1478,7 @@
   <div class="shop-modal" id="product-detail-modal" hidden role="dialog" aria-modal="true" aria-labelledby="shop-modal-selected-title">
     <div class="shop-modal-panel">
       <button class="shop-modal-close" type="button" aria-label="Close product details">×</button>
-      <div class="shop-modal-selected"><div class="shop-modal-selected-image" id="shop-modal-selected-image">Select a Product</div><div><h3 id="shop-modal-selected-title">Choose a Product</h3><p id="shop-modal-selected-copy">Select an item below to view its cover and description.</p><strong class="shop-modal-price" id="shop-modal-price">$29.99</strong><a class="shop-modal-checkout" id="shop-modal-checkout" href="#">Checkout</a></div></div>
+      <div class="shop-modal-selected"><div class="shop-modal-selected-image" id="shop-modal-selected-image">Select a Product</div><div><h3 id="shop-modal-selected-title">Choose a Product</h3><p id="shop-modal-selected-copy">Select an item below to view its cover and description.</p><strong class="shop-modal-price" id="shop-modal-price">$29.99</strong><a class="shop-modal-checkout" id="shop-modal-checkout" href="#" target="_blank" rel="noopener">Checkout</a></div></div>
     </div>
   </div>
   <script>
@@ -1500,11 +1500,11 @@
         modalTitle.textContent = title;
         modalCopy.textContent = description;
         const homework = [
-          ['Starter Homework Booklet', 'The Starter Homework Booklet is created for infants ages 6 weeks to 11 months. It gives families simple, age-appropriate activities that connect learning at home with the Childcare Cheero Christian Curriculum. Each activity supports early development while introducing faith, family connection, and meaningful learning experiences designed for our youngest learners.', 'Infants — Ages 6 Weeks to 11 Months', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4f1d9a153ac43f93d57.png'],
-          ['Freshman Homework Booklet', 'The Freshman Homework Booklet is designed for Toddler 1’s, ages 12 to 23 months. It includes simple activities families can complete at home to reinforce skills and concepts introduced during the school day. Activities are appropriate for this stage of development and support early learning, growing independence, and faith-based connections.', 'Toddler 1’s — Ages 12 to 23 Months', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4f0a612b72e8fa132b9.png'],
-          ['Sophomore Homework Booklet', 'The Sophomore Homework Booklet is designed for Toddler 2’s, ages 24 to 35 months. It provides engaging at-home activities that help children practice what they are learning in the classroom. Families can use the booklet to support language, thinking, creativity, early skills, and Christian learning through activities made for this age group.', 'Toddler 2’s — Ages 24 to 35 Months', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4f0fac7854efe53531c.png'],
-          ['Junior Homework Booklet', 'The Junior Homework Booklet is created for Preschool 3’s, age 3. It extends classroom learning into the home with activities that encourage children to practice important preschool skills with their families. The booklet supports early academics, communication, creativity, independence, and faith-based learning while helping families stay connected to what their child is learning.', 'Preschool 3’s — Age 3', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4f0fac7854efe535312.png'],
-          ['Senior Homework Booklet', 'The Senior Homework Booklet is designed for Pre-K 4’s, age 4. It provides purposeful at-home activities that reinforce classroom concepts and help children continue building the skills they need as they prepare for kindergarten. Activities support early academics, communication, problem-solving, independence, and Christian learning while giving families an easy way to participate in their child’s education.', 'Pre-K 4’s — Age 4', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4edfac7854efe535293.png']
+          ['Starter Homework Booklet', 'The Starter Homework Booklet is created for infants ages 6 weeks to 11 months. It gives families simple, age-appropriate activities that connect learning at home with the Childcare Cheero Christian Curriculum. Each activity supports early development while introducing faith, family connection, and meaningful learning experiences designed for our youngest learners.', 'Infants — Ages 6 Weeks to 11 Months', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4f1d9a153ac43f93d57.png', 'https://link.eliteschildren.org/payment-link/6a9aa285ceb12d9fc1a8b0bd'],
+          ['Freshman Homework Booklet', 'The Freshman Homework Booklet is designed for Toddler 1’s, ages 12 to 23 months. It includes simple activities families can complete at home to reinforce skills and concepts introduced during the school day. Activities are appropriate for this stage of development and support early learning, growing independence, and faith-based connections.', 'Toddler 1’s — Ages 12 to 23 Months', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4f0a612b72e8fa132b9.png', 'https://link.eliteschildren.org/payment-link/6a9aa32ca7f78e147447ee07'],
+          ['Sophomore Homework Booklet', 'The Sophomore Homework Booklet is designed for Toddler 2’s, ages 24 to 35 months. It provides engaging at-home activities that help children practice what they are learning in the classroom. Families can use the booklet to support language, thinking, creativity, early skills, and Christian learning while giving families an easy way to participate in their child’s education.', 'Toddler 2’s — Ages 24 to 35 Months', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4f0fac7854efe53531c.png', 'https://link.eliteschildren.org/payment-link/6a9aa35ba7f78e147447ee09'],
+          ['Junior Homework Booklet', 'The Junior Homework Booklet is created for Preschool 3’s, age 3. It extends classroom learning into the home with activities that encourage children to practice important preschool skills with their families. The booklet supports early academics, communication, creativity, independence, and faith-based learning while helping families stay connected to what their child is learning.', 'Preschool 3’s — Age 3', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4f0fac7854efe535312.png', 'https://link.eliteschildren.org/payment-link/6a9aa384ceb12d9fc1a8b0be'],
+          ['Senior Homework Booklet', 'The Senior Homework Booklet is designed for Pre-K 4’s, age 4. It provides purposeful at-home activities that reinforce classroom concepts and help children continue building the skills they need as they prepare for kindergarten. Activities support early academics, communication, problem-solving, independence, and Christian learning while helping families stay connected to what their child is learning.', 'Pre-K 4’s — Age 4', 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4edfac7854efe535293.png', 'https://link.eliteschildren.org/payment-link/6a9aa5fda7f78e147447ee0b']
         ];
         const lessons = [
           ['Starter Teacher Lesson Plan Booklet — Infants, Ages 6 Weeks to 11 Months', 'Lesson plans and guidance for teachers working with infants, including developmentally appropriate experiences, weekly instruction, and faith-based learning.', null, 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4edf8c3a55cc272f7aa.png'],
@@ -1513,13 +1513,24 @@
           ['Junior Teacher Lesson Plan Booklet — Preschool 3’s, Age 3', 'Organized lesson plans supporting early academics, language, creativity, social development, classroom exploration, and Christian learning.', null, 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4edf20cf78ef1192685.png'],
           ['Senior Teacher Lesson Plan Booklet — Pre-K 4’s, Age 4', 'Organized lesson plans and classroom activities supporting kindergarten readiness, early academics, independence, communication, character, and faith.', null, 'https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a99f4ed7e31763f5dd9d39d.png']
         ];
-        const products = titleUp.includes('HOMEWORK') ? homework : titleUp.includes('TEACHER') ? lessons : ['Starter', 'Freshman', 'Sophomore', 'Junior', 'Senior'].map((level) => [`${level} ${title}`, description]);
+        const lessonPaymentLinks = [
+          'https://link.eliteschildren.org/payment-link/6a9aa8b6a7f78e147447ee0e',
+          'https://link.eliteschildren.org/payment-link/6a9aa8c6ceb12d9fc1a8b0c5',
+          'https://link.eliteschildren.org/payment-link/6a9aa90aa7f78e147447ee11',
+          'https://link.eliteschildren.org/payment-link/6a9aa936ceb12d9fc1a8b0c6',
+          'https://link.eliteschildren.org/payment-link/6a9aa94eceb12d9fc1a8b0c7'
+        ];
+        const lessonProducts = lessons.map(([name, copy, unusedAge, image], index) => {
+          const [bookletTitle, ageGroup] = name.split(' — ');
+          return [bookletTitle, copy, ageGroup.replace(/^(.+?), /, '$1 — '), image, lessonPaymentLinks[index]];
+        });
+        const products = titleUp.includes('HOMEWORK') ? homework : titleUp.includes('TEACHER') ? lessonProducts : ['Starter', 'Freshman', 'Sophomore', 'Junior', 'Senior'].map((level) => [`${level} ${title}`, description]);
         if (titleUp.includes('HOMEWORK') || titleUp.includes('TEACHER')) modalCopy.textContent = products[0][1];
         const selectedImage = document.getElementById('shop-modal-selected-image');
         const selectedTitle = document.getElementById('shop-modal-selected-title');
         const selectedCopy = document.getElementById('shop-modal-selected-copy');
-        const selectProduct = (index) => { const item = products[index]; selectedImage.innerHTML = item[3] ? `<img src="${item[3]}" alt="${item[0]} cover">` : `${item[0]}<br>Cover Image`; selectedImage.classList.toggle('has-image', !!item[3]); selectedTitle.textContent = item[0]; selectedCopy.textContent = item[1]; document.getElementById('shop-modal-price').textContent = '$29.99'; detailModal.hidden = false; };
-        modalItems.innerHTML = products.map((item, index) => `<article class="shop-modal-item"><div class="shop-modal-item-image${item[3] ? ' has-image' : ''}">${item[3] ? `<img src="${item[3]}" alt="${item[0]} cover">` : `${item[0]}<br>Product Image`}</div><strong>${item[0]}</strong>${item[2] ? `<span>${item[2]}</span>` : ''}<button class="shop-modal-buy" type="button" data-index="${index}">View Product</button></article>`).join('');
+        const selectProduct = (index) => { const item = products[index]; selectedImage.innerHTML = item[3] ? `<img src="${item[3]}" alt="${item[0]} cover">` : `${item[0]}<br>Cover Image`; selectedImage.classList.toggle('has-image', !!item[3]); selectedTitle.textContent = item[0]; selectedCopy.textContent = item[1]; document.getElementById('shop-modal-price').textContent = '$29.99'; document.getElementById('shop-modal-checkout').href = item[4] || '#'; detailModal.hidden = false; };
+        modalItems.innerHTML = products.map((item, index) => `<article class="shop-modal-item"><div class="shop-modal-item-image${item[3] ? ' has-image' : ''}">${item[3] ? `<img src="${item[3]}" alt="${item[0]} cover">` : `${item[0]}<br>Product Image`}</div><strong>${item[0]}</strong>${item[2] ? `<span class="shop-modal-age">${item[2]}</span>` : ''}<button class="shop-modal-buy" type="button" data-index="${index}">View Product</button></article>`).join('');
         modalItems.querySelectorAll('.shop-modal-buy').forEach((itemButton) => itemButton.addEventListener('click', () => selectProduct(Number(itemButton.dataset.index))));
         shopModal.hidden = false;
       }
