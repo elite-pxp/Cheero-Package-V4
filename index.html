@@ -1139,7 +1139,9 @@
       font: 400 clamp(1.885rem, 3.64vw, 3.51rem)/.98 "Fredoka One", "Baloo 2", sans-serif;
       letter-spacing: -.035em;
       text-shadow: 0 3px #fff, 0 5px rgba(115, 28, 48, .16);
+      text-transform: uppercase;
     }
+    .hero-copy h1.hero-eyebrow span { display: block; white-space: nowrap; }
     .hero-copy .hero-subheadline {
       margin: .55rem auto 0;
       color: #192f70;
@@ -1173,7 +1175,7 @@
       .shop-intro .client-ready { font-size: clamp(1.3rem, 6.5vw, 1.7rem); }
       .shop-resource-bar { grid-template-columns: 1fr; gap: 10px; }
       .shop-cta-button { width: 100%; }
-      .hero-copy h1.hero-eyebrow { font-size: clamp(1.69rem, 8.06vw, 2.34rem); }
+      .hero-copy h1.hero-eyebrow { font-size: clamp(1.55rem, 7.2vw, 2.05rem); line-height: .93; }
       .hero-copy .hero-subheadline { font-size: clamp(1.25rem, 6vw, 1.7rem); }
       .hero-copy .hero-tagline { font-size: clamp(1.15rem, 5.2vw, 1.45rem); }
       .hero-copy .hero-body {
@@ -1255,6 +1257,11 @@
     .shop-modal-cover-image { min-height: 130px; }
     .shop-modal-copy { max-width: 690px; margin: 0 auto 20px; color: #263128; font: 600 1rem/1.55 "Trebuchet MS", Arial, sans-serif; text-align: center; }
     .shop-modal-items { display: flex; gap: 14px; overflow-x: auto; padding: 2px 2px 14px; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: thin; }
+    .shop-modal-items.collection-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; overflow: visible; padding-bottom: 2px; scroll-snap-type: none; }
+    .shop-modal-items.collection-grid .shop-modal-item { min-width: 0; min-height: 0; padding: 8px; }
+    .shop-modal-items.collection-grid .shop-modal-item-image { margin-bottom: 7px; }
+    .shop-modal-items.collection-grid .shop-modal-item strong { font-size: .8rem; line-height: 1.05; }
+    .shop-modal-items.collection-grid .shop-modal-buy { margin-top: 9px; padding: 8px 3px; font-size: .65rem; }
     .shop-modal-selected { display: grid; grid-template-columns: 190px 1fr; gap: 22px; align-items: center; margin-bottom: 20px; padding: 16px; border-top: 2px solid #e1bc76; border-bottom: 2px solid #e1bc76; }
     .shop-modal-selected-image { display: grid; min-height: 220px; place-items: center; border: 2px dashed #c89540; border-radius: 12px; background: linear-gradient(145deg, #fff5d6, #ecdfb7); color: #76512e; font: 800 .75rem/1.3 "Baloo 2", Arial, sans-serif; text-align: center; text-transform: uppercase; }
     .shop-modal-selected h3 { margin: 0; color: #192f70; font: 400 clamp(1.4rem, 3vw, 2rem)/1 "Fredoka One", "Baloo 2", sans-serif; }
@@ -1272,7 +1279,7 @@
     .footer-value-icon { border-style: solid !important; border-color: #e5b759 !important; background: #fff7d7 !important; color: #6a431d !important; font-size: clamp(1.45rem, 2.6vw, 2.1rem) !important; text-transform: none !important; }
     .shop-modal-item .shop-modal-age { margin: 6px 0 14px; color: #51614c; font: 600 .78rem/1.3 "Trebuchet MS", Arial, sans-serif; letter-spacing: .01em; }
     .shop-modal-buy { margin-top: auto; padding: 10px 7px; border: 2px solid #142555; border-radius: 9px; background: #192f70; box-shadow: 0 3px #112352; color: #fff9df; font: 800 .8rem/1 "Baloo 2", Arial, sans-serif; cursor: pointer; }
-    @media (max-width: 560px) { .shop-modal-product, .shop-modal-selected { grid-template-columns: 1fr; } .shop-modal-items { gap: 10px; } .shop-modal-selected-image { min-height: 130px; } .shop-modal-cover-image { min-height: 110px; } .shop-modal-item { flex-basis: min(245px, 78vw); min-height: 0; padding: 7px; border-radius: 10px; } .shop-modal-item-image { margin-bottom: 6px; font-size: .42rem; } .shop-modal-item strong { font-size: .7rem; } .shop-modal-item span { margin: 5px 0 8px; font-size: .56rem; line-height: 1.2; } .shop-modal-buy { padding: 8px 2px; font-size: .58rem; } }
+    @media (max-width: 560px) { .shop-modal-product, .shop-modal-selected { grid-template-columns: 1fr; } .shop-modal-items { gap: 10px; } .shop-modal-items.collection-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; } .shop-modal-items.collection-grid .shop-modal-item { padding: 5px; border-radius: 8px; } .shop-modal-items.collection-grid .shop-modal-item strong { font-size: .58rem; } .shop-modal-items.collection-grid .shop-modal-buy { margin-top: 6px; padding: 6px 1px; font-size: .48rem; } .shop-modal-product, .shop-modal-selected { grid-template-columns: 1fr; } .shop-modal-selected-image { min-height: 130px; } .shop-modal-cover-image { min-height: 110px; } .shop-modal-item { flex-basis: min(245px, 78vw); min-height: 0; padding: 7px; border-radius: 10px; } .shop-modal-item-image { margin-bottom: 6px; font-size: .42rem; } .shop-modal-item strong { font-size: .7rem; } .shop-modal-item span { margin: 5px 0 8px; font-size: .56rem; line-height: 1.2; } .shop-modal-buy { padding: 8px 2px; font-size: .58rem; } }
     @media (max-width: 760px) {
       .footer-value { font-size: .88rem !important; line-height: 1.2 !important; }
       .footer-value-icon { width: auto !important; height: auto !important; min-height: 0 !important; margin: 0 0 6px !important; border: 0 !important; background: transparent !important; box-shadow: none !important; font-size: 1.25rem !important; }
@@ -1293,7 +1300,7 @@
       </nav>
       <img class="hero-logo" src="https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a4536cfdc5f2c22a28891ff.png" alt="Childcare CHEERO logo">
       <div class="hero-copy">
-        <h1 class="hero-eyebrow">Childcare CHEERO Christian Curriculum</h1>
+        <h1 class="hero-eyebrow"><span>Childcare CHEERO</span><span>Christian Curriculum</span></h1>
         <h2 class="hero-subheadline"><span>Christ-Centered Learning</span><span>for Every Child</span></h2>
         <div class="hero-message-box">
           <p class="hero-tagline">Faith. Learning. Character. All in One Place.</p>
@@ -1402,7 +1409,7 @@
             <div class="product-frame"><strong>IMAGE PLACEMENT</strong><small>Original: learning poster set</small></div>
             <h3>Learning<br>Posters</h3>
             <p>Turn your walls into learning opportunities with colorful CHEERO characters.</p>
-            <span class="shop-button is-coming-soon">Locked · Coming Soon</span>
+            <a class="shop-button" href="#section-4">Shop Learning Posters</a>
             <span class="product-spec">Create at 1000 × 1250 px · 4:5</span>
           </article>
           <article class="product-card pc-coloring">
@@ -1580,12 +1587,14 @@
           ['Childcare CHEERO Drawstring Bag 1', 'Product details and checkout link coming soon.'],
           ['Childcare CHEERO Drawstring Bag 2', 'Product details and checkout link coming soon.']
         ];
-        const products = titleUp.includes('HOMEWORK') ? homework : titleUp.includes('TEACHER') ? lessonProducts : titleUp.includes('SHIRTS') ? shirts : titleUp.includes('DRAWSTRING') ? bags : ['Starter', 'Freshman', 'Sophomore', 'Junior', 'Senior'].map((level) => [`${level} ${title}`, description]);
+        const posters = Array.from({ length: 28 }, (_, index) => [`Learning Poster ${String(index + 1).padStart(2, '0')}`, 'Product details and checkout link coming soon.']);
+        const products = titleUp.includes('HOMEWORK') ? homework : titleUp.includes('TEACHER') ? lessonProducts : titleUp.includes('POSTERS') ? posters : titleUp.includes('SHIRTS') ? shirts : titleUp.includes('DRAWSTRING') ? bags : ['Starter', 'Freshman', 'Sophomore', 'Junior', 'Senior'].map((level) => [`${level} ${title}`, description]);
         if (titleUp.includes('HOMEWORK') || titleUp.includes('TEACHER')) modalCopy.textContent = products[0][1];
         const selectedImage = document.getElementById('shop-modal-selected-image');
         const selectedTitle = document.getElementById('shop-modal-selected-title');
         const selectedCopy = document.getElementById('shop-modal-selected-copy');
         const selectProduct = (index) => { const item = products[index]; selectedImage.innerHTML = item[3] ? `<img src="${item[3]}" alt="${item[0]} cover">` : `${item[0]}<br>Cover Image`; selectedImage.classList.toggle('has-image', !!item[3]); selectedTitle.textContent = item[0]; selectedCopy.textContent = item[1]; document.getElementById('shop-modal-price').textContent = '$29.99'; document.getElementById('shop-modal-checkout').href = item[4] || '#'; detailModal.hidden = false; };
+        modalItems.classList.toggle('collection-grid', titleUp.includes('POSTERS'));
         modalItems.innerHTML = products.map((item, index) => `<article class="shop-modal-item"><div class="shop-modal-item-image${item[3] ? ' has-image' : ''}">${item[3] ? `<img src="${item[3]}" alt="${item[0]} cover">` : `${item[0]}<br>Product Image`}</div><strong>${item[0]}</strong>${item[2] ? `<span class="shop-modal-age">${item[2]}</span>` : ''}<button class="shop-modal-buy" type="button" data-index="${index}">View Product</button></article>`).join('');
         modalItems.querySelectorAll('.shop-modal-buy').forEach((itemButton) => itemButton.addEventListener('click', () => selectProduct(Number(itemButton.dataset.index))));
         shopModal.hidden = false;
