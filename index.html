@@ -85,6 +85,30 @@
     }
     .wood-nav a:hover,
     .wood-nav a:focus-visible { color: #ffe28d; outline: 0; }
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 38px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #fff8dc;
+      cursor: pointer;
+    }
+    .menu-toggle span,
+    .menu-toggle::before,
+    .menu-toggle::after {
+      display: block;
+      width: 25px;
+      height: 3px;
+      border-radius: 3px;
+      background: currentColor;
+      box-shadow: 0 1px #42200e;
+      content: "";
+    }
+    .menu-toggle span { margin: 5px 0; }
     .wood-nav .cart-link {
       display: inline-flex;
       align-items: center;
@@ -96,6 +120,15 @@
       color: #2d572e;
       font-weight: 800;
       text-shadow: none;
+    }
+    .hero-logo {
+      position: absolute;
+      z-index: 4;
+      top: clamp(74px, 7.6vw, 108px);
+      left: clamp(14px, 2.4vw, 34px);
+      width: clamp(110px, 13vw, 190px);
+      height: auto;
+      filter: drop-shadow(0 3px 2px rgba(48, 30, 14, .25));
     }
     .hero-actions {
       position: absolute;
@@ -1204,8 +1237,12 @@
       .copy-list { display: none; }
     }
     @media (max-width: 760px) {
-      .wood-nav { left: 0; width: 100%; justify-content: space-evenly; gap: 0; padding-inline: 4px; border-radius: 0; transform: none; }
-      .wood-nav a { flex: 1 1 0; font-size: clamp(.66rem, 2.2vw, .84rem); text-align: center; white-space: nowrap; }
+      .wood-nav { top: 8px; right: 12px; left: auto; display: flex; flex-direction: column; align-items: stretch; width: 52px; min-height: 48px; padding: 3px; overflow: visible; border-radius: 10px; transform: none; }
+      .wood-nav.is-open { width: min(230px, calc(100vw - 24px)); padding: 7px 10px 12px; }
+      .menu-toggle { display: flex; align-self: flex-end; flex-direction: column; }
+      .wood-nav a { display: none; flex: none; padding: 9px 8px; font-size: .86rem; text-align: left; white-space: nowrap; }
+      .wood-nav.is-open a { display: block; }
+      .hero-logo { top: 64px; left: 12px; width: clamp(78px, 22vw, 118px); }
     }
     @media (prefers-reduced-motion: reduce) { .hero-button, .copy-cta, .shop-button, .shop-heading, .custom-callout { animation: none; } }
     .shop-modal[hidden] { display: none; }
@@ -1246,6 +1283,7 @@
   <main>
     <section id="section-1" class="hero">
       <nav class="wood-nav" aria-label="Main navigation">
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>
         <a href="#section-1">Home</a>
         <a href="#section-3">Shop</a>
         <a href="#section-3">Bundles</a>
@@ -1253,6 +1291,7 @@
         <a href="#section-4">Customization</a>
         <a href="#section-4">Contact</a>
       </nav>
+      <img class="hero-logo" src="https://assets.cdn.filesafe.space/l1M5JRVy49h4zcBcOXhu/media/6a4536cfdc5f2c22a28891ff.png" alt="Childcare CHEERO logo">
       <div class="hero-copy">
         <h1 class="hero-eyebrow">Childcare CHEERO Christian Curriculum</h1>
         <h2 class="hero-subheadline"><span>Christ-Centered Learning</span><span>for Every Child</span></h2>
@@ -1377,14 +1416,14 @@
             <div class="product-frame"><strong>IMAGE PLACEMENT</strong><small>Original: red &amp; navy shirt pair</small></div>
             <h3>Childcare<br>CHEERO Shirts</h3>
             <p>Wear the CHEERO spirit for students, events, special activities, and gifts.</p>
-            <span class="shop-button is-coming-soon">Locked · Coming Soon</span>
+            <a class="shop-button" href="#section-4">Shop CHEERO Shirts</a>
             <span class="product-spec">Create at 1000 × 1250 px · 4:5</span>
           </article>
           <article class="product-card pc-bags">
             <div class="product-frame"><strong>IMAGE PLACEMENT</strong><small>Original: drawstring bag pair</small></div>
             <h3>Drawstring<br>Bags</h3>
             <p>Take CHEERO wherever you go—perfect for learning materials and essentials.</p>
-            <span class="shop-button is-coming-soon">Locked · Coming Soon</span>
+            <a class="shop-button" href="#section-4">Shop Drawstring Bags</a>
             <span class="product-spec">Create at 1000 × 1250 px · 4:5</span>
           </article>
         </div>
@@ -1488,6 +1527,18 @@
     const modalCopy = document.getElementById('shop-modal-copy');
     const modalItems = document.getElementById('shop-modal-items');
     const detailModal = document.getElementById('product-detail-modal');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.wood-nav');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navigation.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+    navigation.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+      navigation.classList.remove('is-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open menu');
+    }));
     document.getElementById('shop-products').addEventListener('click', (event) => {
       const button = event.target.closest('.product-card .shop-button');
       if (!button) return;
@@ -1524,7 +1575,12 @@
           const [bookletTitle, ageGroup] = name.split(' — ');
           return [bookletTitle, copy, ageGroup.replace(/^(.+?), /, '$1 — '), image, lessonPaymentLinks[index]];
         });
-        const products = titleUp.includes('HOMEWORK') ? homework : titleUp.includes('TEACHER') ? lessonProducts : ['Starter', 'Freshman', 'Sophomore', 'Junior', 'Senior'].map((level) => [`${level} ${title}`, description]);
+        const shirts = Array.from({ length: 12 }, (_, index) => [`Childcare CHEERO T-Shirt ${index + 1}`, 'Product details and checkout link coming soon.']);
+        const bags = [
+          ['Childcare CHEERO Drawstring Bag 1', 'Product details and checkout link coming soon.'],
+          ['Childcare CHEERO Drawstring Bag 2', 'Product details and checkout link coming soon.']
+        ];
+        const products = titleUp.includes('HOMEWORK') ? homework : titleUp.includes('TEACHER') ? lessonProducts : titleUp.includes('SHIRTS') ? shirts : titleUp.includes('DRAWSTRING') ? bags : ['Starter', 'Freshman', 'Sophomore', 'Junior', 'Senior'].map((level) => [`${level} ${title}`, description]);
         if (titleUp.includes('HOMEWORK') || titleUp.includes('TEACHER')) modalCopy.textContent = products[0][1];
         const selectedImage = document.getElementById('shop-modal-selected-image');
         const selectedTitle = document.getElementById('shop-modal-selected-title');
